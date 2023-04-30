@@ -7,12 +7,16 @@ import { NaviComponent } from './components/navi/navi.component';
 import { BuildReporterComponent } from './components/build-reporter/build-reporter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from './components/main/main.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
-    BuildReporterComponent
+    BuildReporterComponent,
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
