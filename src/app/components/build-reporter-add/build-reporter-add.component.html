@@ -1,0 +1,55 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Ev Rapolama Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="buildReporterAddForm">
+                    <div class="mb-3">
+                        <label for="userId">Kullanıcı Id</label>
+                        <div class="form-group">
+                            <input type="number" id="userId" formControlName="userId" class="form-control"
+                                placeholder="Kullanıcı Id" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Adres</label>
+                        <div class="form-group">
+                            <input type="text" id="address" formControlName="address" class="form-control"
+                                placeholder="Adres" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="detailedAddress">Detaylı Adres</label>
+                        <div class="form-group">
+                            <input type="text" id="detailedAddress" formControlName="detailedAddress" class="form-control"
+                                placeholder="Detaylı Adres" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="urgency">Aciliyet</label>
+                        <div class="form-group">
+                            <input type="text" id="urgency" formControlName="urgency" class="form-control"
+                                placeholder="Aciliyet" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mapsAddress">Map Adresi</label>
+                        <div class="form-group">
+                            <input type="text" id="mapsAddress" formControlName="mapsAddress" class="form-control"
+                                placeholder="Map Adresi" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

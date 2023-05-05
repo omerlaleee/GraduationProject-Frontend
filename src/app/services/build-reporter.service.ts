@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { BuildReporter } from '../models/buildReporter';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class BuildReporterService {
   getBuildReporters(): Observable<ListResponseModel<BuildReporter>> {
     let getAllUrl = this.apiUrl + "buildreporters/getall";
     return this.httpClient.get<ListResponseModel<BuildReporter>>(getAllUrl);
+  }
+
+  add(buildReporter: BuildReporter): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "buildreporters/add", buildReporter);
   }
 
 }
