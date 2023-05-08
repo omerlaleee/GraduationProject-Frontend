@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       let loginModel = Object.assign({}, this.loginForm.value);
-      console.log(loginModel);
+      //console.log(loginModel);
       this.authService.login(loginModel).subscribe(response => {
-        console.log(response);
+        //console.log(response);
         window.localStorage.setItem("token", response.data.token);
         this.toastrService.success(response.message, "Giriş Başarılı");
         this.router.navigate(["/"]);

@@ -12,6 +12,7 @@ import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { BuildReporterAddComponent } from './components/build-reporter-add/build-reporter-add.component';
 import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
     BuildReporterComponent,
     MainComponent,
     LoginComponent,
-    BuildReporterAddComponent
+    BuildReporterAddComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
