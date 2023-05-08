@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserForLoginDto } from 'src/app/models/userForLoginDto';
+import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms"
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +11,38 @@ import { UserForLoginDto } from 'src/app/models/userForLoginDto';
 })
 export class LoginComponent implements OnInit {
 
-  userForLoginDto: UserForLoginDto;
+  loginForm: FormGroup;
+  constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.createLoginForm();
   }
 
+  createLoginForm() {
+    this.loginForm = this.formBuilder.group({
+      email: ["", Validators.required],
+      password: ["", Validators.required]
+    });
+  }
 
+  login() {
+    if (this.loginForm.valid) {
+      let loginModel = Object.assign({}, this.loginForm.value);
+      console.log(loginModel);
+      this.authService.login(loginModel).subscribe(response => {
+        console.log(response);
+        window.localStorage.setItem("token", response.data.token);
+        this.toastrService.success(response.message, "Giriş Başarılı");
+        this.router.navigate(["/"]);
+      }
+        , responseError => {
+          //console.log(responseError);
+          this.toastrService.error(responseError.error.message, "Giriş Başarısız");
+        })
+    }
+    else {
+      this.toastrService.error("Formunuz Eksik!", "Hata");
+    }
+  }
 
 }

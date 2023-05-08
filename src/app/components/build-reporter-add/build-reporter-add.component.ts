@@ -40,9 +40,8 @@ export class BuildReporterAddComponent implements OnInit {
           this.router.navigateByUrl('/buildreporters');
         },
         responseError => {
-          console.log(responseError.error.ValidationErrors);
+          //console.log(responseError.error.ValidationErrors);
           if (responseError.error.ValidationErrors.length > 0) {
-
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
               this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası");
             }
@@ -53,5 +52,4 @@ export class BuildReporterAddComponent implements OnInit {
       this.toastrService.error("Formunuz Eksik!", "Hata");
     }
   }
-
 }

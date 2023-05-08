@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: "buildreporters", component: BuildReporterComponent },
   { path: "login", component: LoginComponent },
   { path: "buildreporters/add", component: BuildReporterAddComponent },
+  { path: "login", component: LoginComponent } 
 ];
 
 @NgModule({
