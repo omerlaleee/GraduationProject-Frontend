@@ -41,6 +41,7 @@ export class BuildReporterAddComponent implements OnInit {
         },
         responseError => {
           //console.log(responseError.error.ValidationErrors);
+          console.log(responseError.error);
           if (responseError.error.ValidationErrors.length > 0) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
               this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası");
