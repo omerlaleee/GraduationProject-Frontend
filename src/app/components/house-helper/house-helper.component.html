@@ -1,4 +1,4 @@
-<b>Ev Raporlama Sayfası</b>
+<b>Barınma Yardımı Sağlayabilenler</b>
 <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
@@ -7,21 +7,28 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Kullanıcı Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Telefon No</th>
             <th>Adres</th>
             <th>Detaylı Adres</th>
             <th>Aciliyet</th>
+            <th>Durum Bilgisi</th>
             <th>Harita Adresi</th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of buildReporters">
+        <tr *ngFor="let item of victims">
             <td>{{item.id}}</td>
-            <td>{{item.userId}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.surname}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
             <td>{{item.address}}</td>
             <td>{{item.detailedAddress}}</td>
             <td>{{item.urgency}}</td>
+            <td>{{item.statusInformation}}</td>
             <td>{{item.mapsAddress}}</td>
         </tr>
     </tbody>
