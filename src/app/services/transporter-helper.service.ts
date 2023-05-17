@@ -14,7 +14,7 @@ export class TransporterHelperService {
 
   apiUrl = "https://localhost:44314/api/";
 
-  getFoodHelpers(): Observable<ListResponseModel<TentHelper>> {
+  getTransporterHelpers(): Observable<ListResponseModel<TentHelper>> {
     let getAllUrl = this.apiUrl + "transporterhelpers/getall";
     return this.httpClient.get<ListResponseModel<TentHelper>>(getAllUrl);
   }

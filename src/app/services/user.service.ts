@@ -14,7 +14,7 @@ export class UserService {
 
   apiUrl = "https://localhost:44314/api/";
 
-  getFoodHelpers(): Observable<ListResponseModel<User>> {
+  getUsers(): Observable<ListResponseModel<User>> {
     let getAllUrl = this.apiUrl + "users/getall";
     return this.httpClient.get<ListResponseModel<User>>(getAllUrl);
   }
