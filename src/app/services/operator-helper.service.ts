@@ -14,7 +14,7 @@ export class OperatorHelperService {
 
   apiUrl = "https://localhost:44314/api/";
 
-  getFoodHelpers(): Observable<ListResponseModel<OperatorHelper>> {
+  getOperatorHelpers(): Observable<ListResponseModel<OperatorHelper>> {
     let getAllUrl = this.apiUrl + "operatorhelpers/getall";
     return this.httpClient.get<ListResponseModel<OperatorHelper>>(getAllUrl);
   }

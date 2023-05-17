@@ -14,6 +14,14 @@ import { BuildReporterAddComponent } from './components/build-reporter-add/build
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FoodHelperComponent } from './components/food-helper/food-helper.component';
+import { HouseHelperComponent } from './components/house-helper/house-helper.component';
+import { OperatorHelperComponent } from './components/operator-helper/operator-helper.component';
+import { TentHelperComponent } from './components/tent-helper/tent-helper.component';
+import { TransporterHelperComponent } from './components/transporter-helper/transporter-helper.component';
+import { FoodVictimComponent } from './components/food-victim/food-victim.component';
+import { ColdVictimComponent } from './components/cold-victim/cold-victim.component';
+import { DebrisVictimComponent } from './components/debris-victim/debris-victim.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -24,7 +32,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainComponent,
     LoginComponent,
     BuildReporterAddComponent,
-    RegisterComponent
+    RegisterComponent,
+    FoodHelperComponent,
+    HouseHelperComponent,
+    OperatorHelperComponent,
+    TentHelperComponent,
+    TransporterHelperComponent,
+    FoodVictimComponent,
+    ColdVictimComponent,
+    DebrisVictimComponent
   ],
   imports: [
     BrowserModule,
