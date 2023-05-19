@@ -1,1 +1,29 @@
-<p>operator-helper works!</p>
+<b>Gıda Yardımı Sağlayabilenler</b>
+<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Telefon No</th>
+            <th>Yardım Detayı</th>
+            <th>Adres</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of operatorHelpers">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.infoAboutHelp}}</td>
+            <td>{{item.address}}</td>
+        </tr>
+    </tbody>
+</table>

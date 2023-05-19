@@ -1,6 +1,10 @@
-export interface OperatorHelper{
-    id:number;
-    userId:number;
-    infoAboutHelp:string;
-    address:string;
+export interface OperatorHelper {
+    id: number;
+    userId: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+    infoAboutHelp: string;
 }

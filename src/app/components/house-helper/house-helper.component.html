@@ -11,24 +11,20 @@
             <th>Soyadı</th>
             <th>E-posta</th>
             <th>Telefon No</th>
-            <th>Adres</th>
-            <th>Detaylı Adres</th>
-            <th>Aciliyet</th>
-            <th>Durum Bilgisi</th>
+            <th>Yardım Detayı</th>
+            <th>Yardım Kapasitesi (Kişi Sayısı)</th>
             <th>Harita Adresi</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of victims">
+        <tr *ngFor="let item of houseHelpers">
             <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.surname}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
             <td>{{item.email}}</td>
             <td>{{item.phoneNumber}}</td>
-            <td>{{item.address}}</td>
-            <td>{{item.detailedAddress}}</td>
-            <td>{{item.urgency}}</td>
-            <td>{{item.statusInformation}}</td>
+            <td>{{item.infoAboutHelp}}</td>
+            <td>{{item.numberOfPeople}}</td>
             <td>{{item.mapsAddress}}</td>
         </tr>
     </tbody>

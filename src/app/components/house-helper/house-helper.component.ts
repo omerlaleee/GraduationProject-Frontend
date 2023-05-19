@@ -8,18 +8,18 @@ import { HouseHelperService } from 'src/app/services/house-helper.service';
   styleUrls: ['./house-helper.component.css']
 })
 export class HouseHelperComponent {
-  houseHelper: HouseHelper[];
+  houseHelpers: HouseHelper[];
   dataLoaded = false;
 
   constructor(private houseHelperService:HouseHelperService){}
 
   ngOnInit(): void {
-    this.getHouseHelper();
+    this.getHouseHelpers();
   }
 
-  getHouseHelper(){
+  getHouseHelpers(){
     this.houseHelperService.getHouseHelpers().subscribe(response=>{
-      this.houseHelper=response.data;
+      this.houseHelpers=response.data;
       this.dataLoaded=true;
     })
   }

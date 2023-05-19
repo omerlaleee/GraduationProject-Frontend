@@ -1,7 +1,11 @@
-export interface FoodHelper{
-    id:number;
-    userId:number;
-    infoAboutHelp:string;
-    numberOfPeople:number;
-    mapsAddress:string;
+export interface FoodHelper {
+    id: number;
+    userId: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    infoAboutHelp: string;
+    numberOfPeople: number;
+    mapsAddress: string;
 }

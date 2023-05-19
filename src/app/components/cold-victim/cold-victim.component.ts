@@ -8,7 +8,7 @@ import { ColdVictimService } from 'src/app/services/cold-victim.service';
   styleUrls: ['./cold-victim.component.css']
 })
 export class ColdVictimComponent implements OnInit {
-  victim: Victim[];
+  victims: Victim[];
   dataLoaded = false;
 
   constructor(private coldVictimService:ColdVictimService){}
@@ -19,7 +19,7 @@ export class ColdVictimComponent implements OnInit {
 
   getColdVictims(){
     this.coldVictimService.getColdVictims().subscribe(response=>{
-      this.victim=response.data;
+      this.victims=response.data;
       this.dataLoaded=true;
     })
   }
