@@ -23,6 +23,10 @@ import { FoodVictimComponent } from './components/food-victim/food-victim.compon
 import { ColdVictimComponent } from './components/cold-victim/cold-victim.component';
 import { DebrisVictimComponent } from './components/debris-victim/debris-victim.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ColdVictimAddComponent } from './components/cold-victim-add/cold-victim-add.component';
+import { DebrisVictimAddComponent } from './components/debris-victim-add/debris-victim-add.component';
+import { FoodVictimAddComponent } from './components/food-victim-add/food-victim-add.component';
+import { FoodHelperAddComponent } from './components/food-helper-add/food-helper-add.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TransporterHelperComponent,
     FoodVictimComponent,
     ColdVictimComponent,
-    DebrisVictimComponent
+    DebrisVictimComponent,
+    ColdVictimAddComponent,
+    DebrisVictimAddComponent,
+    FoodVictimAddComponent,
+    FoodHelperAddComponent
   ],
   imports: [
     BrowserModule,

@@ -40,12 +40,14 @@ export class BuildReporterAddComponent implements OnInit {
           this.router.navigateByUrl('/buildreporters');
         },
         responseError => {
-          //console.log(responseError.error.ValidationErrors);
-          console.log(responseError.error);
-          if (responseError.error.ValidationErrors.length > 0) {
+          if (responseError.error.ValidationErrors) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
               this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası");
             }
+          }
+          else {
+            this.toastrService.error("Sisteme Giriş Yapmalısınız!","Yetki Hatası");
+            this.router.navigateByUrl('/login');
           }
         });
     }

@@ -13,7 +13,9 @@ export class LoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.isAuthenticated()) {
+
+    let token = window.localStorage.getItem('token');
+    if (this.authService.isAuthenticated() && this.authService.checkTokenExpired(token)) {
       return true;
     }
     else {

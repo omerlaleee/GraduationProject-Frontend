@@ -14,14 +14,15 @@ export class ColdVictimService {
   constructor(private httpClient: HttpClient) { }
 
   apiUrl = "https://localhost:44314/api/";
+  victimType = "Cold";
 
   getColdVictims(): Observable<ListResponseModel<Victim>> {
-    let getAllUrl = this.apiUrl + "victims/getall";
+    let getAllUrl = this.apiUrl + "victims/getbyvictimtype?victimType=" + this.victimType;
     return this.httpClient.get<ListResponseModel<Victim>>(getAllUrl);
   }
 
   add(victim: Victim): Observable<ResponseModel> {
-    victim.victimType="Cold";
+    victim.victimType = this.victimType;
     return this.httpClient.post<ResponseModel>(this.apiUrl + "victims/add", victim);
   }
 }
