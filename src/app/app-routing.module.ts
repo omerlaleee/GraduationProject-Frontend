@@ -7,6 +7,7 @@ import { BuildReporterAddComponent } from './components/build-reporter-add/build
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 import { FoodHelperComponent } from './components/food-helper/food-helper.component';
+import { DebrisVictimComponent } from './components/debris-victim/debris-victim.component';
 import { ColdVictimComponent } from './components/cold-victim/cold-victim.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "foodhelpers", component: FoodHelperComponent },
+  { path: "debrisvictims", component: DebrisVictimComponent },
   { path: "coldvictims", component: ColdVictimComponent }
 ];
 
