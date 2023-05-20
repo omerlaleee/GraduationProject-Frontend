@@ -9,17 +9,38 @@ import { LoginGuard } from './guards/login.guard';
 import { FoodHelperComponent } from './components/food-helper/food-helper.component';
 import { DebrisVictimComponent } from './components/debris-victim/debris-victim.component';
 import { ColdVictimComponent } from './components/cold-victim/cold-victim.component';
+import { TentHelperComponent } from './components/tent-helper/tent-helper.component';
+import { HouseHelperComponent } from './components/house-helper/house-helper.component';
+import { OperatorHelperComponent } from './components/operator-helper/operator-helper.component';
+import { TransporterHelperComponent } from './components/transporter-helper/transporter-helper.component';
+import { FoodVictimComponent } from './components/food-victim/food-victim.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", component: MainComponent },
-  { path: "buildreporters", component: BuildReporterComponent },
-  { path: "login", component: LoginComponent },
-  { path: "buildreporters/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
+  { path: "", pathMatch: "full", component: MainComponent },  
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "foodhelpers", component: FoodHelperComponent },
+
+
+  //{ path: "buildreporters/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
+  // { path: "debrisvictims/add", component: DebrisVictimAddComponent },
+  // { path: "coldvictims/add", component: ColdVictimAddComponent },
+  // { path: "foodvictims/add", component: FoodVictimAddComponent },
+
+  // { path: "foodhelpers/add", component: FoodHelperAddComponent },
+  // { path: "tenthelpers/add", component: TentHelperAddComponent},
+  // { path: "househelpers/add", component: HouseHelperAddComponent },
+  // { path: "operatorhelpers/add", component: OperatorAddHelperComponent },
+  // { path: "transporterhelpers/add", component: TransporterHelperAddComponent },
+
+  { path: "buildreporters", component: BuildReporterComponent },  
   { path: "debrisvictims", component: DebrisVictimComponent },
-  { path: "coldvictims", component: ColdVictimComponent }
+  { path: "coldvictims", component: ColdVictimComponent },
+  { path: "foodvictims", component: FoodVictimComponent },
+  { path: "foodhelpers", component: FoodHelperComponent },
+  { path: "househelpers", component: HouseHelperComponent },
+  { path: "tenthelpers", component: TentHelperComponent },
+  { path: "operatorhelpers", component: OperatorHelperComponent },
+  { path: "transporterhelpers", component: TransporterHelperComponent }
 ];
 
 @NgModule({
