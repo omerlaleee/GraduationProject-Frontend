@@ -7,6 +7,7 @@ import { BuildReporterAddComponent } from './components/build-reporter-add/build
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 import { FoodHelperComponent } from './components/food-helper/food-helper.component';
+import { ColdVictimComponent } from './components/cold-victim/cold-victim.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: "buildreporters/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "foodhelpers", component: FoodHelperComponent }
+  { path: "foodhelpers", component: FoodHelperComponent },
+  { path: "coldvictims", component: ColdVictimComponent }
 ];
 
 @NgModule({
