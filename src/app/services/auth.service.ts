@@ -21,20 +21,16 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "login", loginModel);
   }
 
+  logout(){
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+  }
+
   register(registerModel: RegisterModel): Observable<SingleResponseModel<TokenModel>> {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "register", registerModel);
   }
 
-  isAuthenticated() {
-    if (window.localStorage.getItem("token")) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
-  checkTokenExpired(token: string | null) {
+  isAuthenticated(token: string | null) {
     return !this.helper.isTokenExpired(token);
   }
 

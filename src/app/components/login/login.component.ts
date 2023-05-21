@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
         //console.log(response);
         window.localStorage.setItem("token", response.data.token);
         window.localStorage.setItem("email", loginModel.email);
+        console.log("Token → " + response.data.token);
+        console.log("Expiration Date of Token → " + response.data.expiration);
         this.toastrService.success(response.message, "Giriş Başarılı");
         this.router.navigate(["/"]);
       }

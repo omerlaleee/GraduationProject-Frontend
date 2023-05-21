@@ -20,14 +20,14 @@ import { FoodVictimAddComponent } from './components/food-victim-add/food-victim
 import { FoodHelperAddComponent } from './components/food-helper-add/food-helper-add.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", component: MainComponent },  
+  { path: "", pathMatch: "full", component: MainComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
-  { path: "debrisvictim/add", component: DebrisVictimAddComponent },
-  { path: "coldvictim/add", component: ColdVictimAddComponent },
-  { path: "foodvictim/add", component: FoodVictimAddComponent },
+  { path: "debrisvictim/add", component: DebrisVictimAddComponent, canActivate: [LoginGuard] },
+  { path: "coldvictim/add", component: ColdVictimAddComponent, canActivate: [LoginGuard] },
+  { path: "foodvictim/add", component: FoodVictimAddComponent, canActivate: [LoginGuard] },
 
   { path: "foodhelpers/add", component: FoodHelperAddComponent },
   // { path: "tenthelpers/add", component: TentHelperAddComponent},
@@ -35,7 +35,7 @@ const routes: Routes = [
   // { path: "operatorhelpers/add", component: OperatorHelperAddComponent },
   // { path: "transporterhelpers/add", component: TransporterHelperAddComponent },
 
-  { path: "buildreporters", component: BuildReporterComponent },  
+  { path: "buildreporters", component: BuildReporterComponent },
   { path: "debrisvictims", component: DebrisVictimComponent },
   { path: "coldvictims", component: ColdVictimComponent },
   { path: "foodvictims", component: FoodVictimComponent },
