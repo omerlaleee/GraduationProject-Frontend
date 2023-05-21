@@ -69,116 +69,291 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Güzel Bir HTML Sayfası</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #f7f7f7;
-      font-family: Arial, sans-serif;
-    }
 
-    .container {
-      max-width: 100vw;
-      margin: 0 auto;
-      padding: 40px;
-      background-color: #fff;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-      margin-top: 50px;
-    }
+<!-- <head>
+    <title>Güzel Bir HTML Sayfası</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+        .container {
+            max-width: 100vw;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 50px;
+        }
 
-    .btn {
-      margin-top: 10px;
-    }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-    .section-divider {
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-    }
-  </style>
-</head>
+        .btn {
+            margin-top: 10px;
+        }
+
+        .section-divider {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head> -->
+
 <body>
 
-  <div class="container">
-    <section class="section-divider">
-        <h1>Yardım Talep Et</h1>
-        <div class="row">
-            <div class="col-md-3">
-                <button type="button" class="btn btn-outline-danger" routerLink="/buildreporter/add">Ev Raporlama Ekle</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-danger" routerLink="/debrisvictim/add">Enkaz Altındayım!</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-danger" routerLink="/foodvictim/add">Gıdaya İhtiyacım Var</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-danger" routerLink="/coldvictim/add">Isınmaya İhtiyacım Var</button>
-            </div>
-        </div>
-    </section>
+    <div class="mx-auto max-w-screen-lg px-6">
+        <section class="section-divider mt-20">
+            <h2 class="mb-5">Yardım Talep Et</h2>
+            <div class="grid gap-3 sm:grid-cols-3 sm:gap-6">
+                <button type="button"
+                    class="inline-flex grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 h-16 text-red-600 shadow-md"
+                    routerLink="/debrisvictim/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z">
+                        </path>
+                    </svg>
+                    <span>Enkaz Altındayım!</span>
+                </button>
 
-    <section class="section-divider">
-        <h1>Yardım Sağla</h1>
-        <div class="row">
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/foodhelper/add">Gıda Yardımı Yap</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/tenthelper/add">Çadır Yardımı Yap</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/househelper/add">Barınma Yardımı Sağlayabilirim</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/operatorhelper/add">İş Makinesi Kullanabilirim</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/transporterhelper/add">Seyahat Yardımı Sağlayabilirim</button>
-            </div>
-        </div>
-    </section>
+                <button type="button"
+                    class="inline-flex grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 h-16 text-purple-600 shadow-md"
+                    routerLink="/foodvictim/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    </svg>
+                    <span>Gıdaya İhtiyacım Var</span>
+                </button>
 
-    <section>
-        <h1>Yardım Listeleri</h1>
-        <div class="row">
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/buildreporters">Raporlanan Evler</button>
+                <button type="button"
+                    class="inline-flex grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 h-16 text-amber-600 shadow-md"
+                    routerLink="/coldvictim/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z">
+                        </path>
+                    </svg>
+                    <span>Isınmaya İhtiyacım Var</span>
+
+                </button>
+
+                <button type="button"
+                    class="inline-flex grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 h-16 text-amber-600 shadow-md"
+                    routerLink="/buildreporter/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z">
+                        </path>
+                    </svg>
+                    <span>Ev Raporlama Ekle</span>
+                </button>
             </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/debrisvictims">Enkaz Altında Olanlar</button>
+        </section>
+
+        <section class="section-divider mt-20">
+            <h2 class="mb-5">Yardım Sağla</h2>
+            <div class="grid gap-3 sm:grid-cols-3 sm:gap-6">
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/operatorhelper/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z">
+                        </path>
+                    </svg>
+                    <span>İş Makinesi Kullanabilirim</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/transporterhelper/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12">
+                        </path>
+                    </svg>
+                    <span>Seyahat Yardımı Sağlayabilirim</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/tenthelper/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    </svg>
+                    <span>Çadır Yardımı Yap</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/househelper/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25">
+                        </path>
+                    </svg>
+                    <span>Barınma Yardımı Sağlayabilirim</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/foodhelper/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    </svg>
+                    <span>Gıda Yardımı Yap</span>
+                </button>
             </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/coldvictims">Isınma İhtiyacı Olanlar</button>
+        </section>
+
+        <section class="section-divider mt-20">
+            <h2 class="mb-5">Yardım Listeleri</h2>
+            <div class="grid gap-3 sm:grid-cols-3 sm:gap-6">
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 text-red-600 shadow-md"
+                    routerLink="/debrisvictims">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z">
+                        </path>
+                    </svg>
+                    <span>Enkaz Altındayım!</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800  text-amber-600 shadow-md"
+                    routerLink="/buildreporters">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z">
+                        </path>
+                    </svg>
+                    <span>Raporlanan Evler</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 text-amber-600 shadow-md"
+                    routerLink="/coldvictims">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z">
+                        </path>
+                    </svg>
+                    <span>Isınma İhtiyacı Olanlar</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 text-purple-600 shadow-md"
+                    routerLink="/foodvictims">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    </svg>
+                    <span>Gıda İhtiyacı Olanlar</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/foodhelpers">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    </svg>
+                    <span>Gıda Yarımı Sağlayanlar</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/househelpers">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25">
+                        </path>
+                    </svg>
+                    <span>Evim Müsait</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/tenthelpers">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M396.6 6.546C408.1-2.182 423.9-2.182 435.4 6.546L603.4 134.5C610 139.6 614.4 147 615.6 155.3L639.6 315.3C641 324.5 638.3 333.8 632.2 340.9C626.2 347.9 617.3 352 608 352H461.5L455.3 310.5C452.8 294 444 279.2 430.8 269.1L262.8 141.1C254.6 134.9 245.4 130.9 235.8 129.1L396.6 6.546zM411.4 294.5C418 299.6 422.4 307 423.6 315.3L447.6 475.3C449 484.5 446.3 493.8 440.2 500.9C434.2 507.9 425.3 512 416 512H319.1L223.1 352V512H32C22.68 512 13.83 507.9 7.753 500.9C1.674 493.8-1.028 484.5 .3542 475.3L24.35 315.3C25.59 307 29.98 299.6 36.61 294.5L204.6 166.5C216.1 157.8 231.9 157.8 243.4 166.5L411.4 294.5z" />
+                    </svg>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    </svg> -->
+                    <span>Çadır Yardımı Yapabilenler</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/operatorhelpers">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z">
+                        </path>
+                    </svg>
+                    <span>İş Makinesi Kullanabilenler</span>
+                </button>
+
+                <button type="button"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
+                    routerLink="/transporterhelpers">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12">
+                        </path>
+                    </svg>
+                    <span>Yolcu Taşıyabilenler</span>
+                </button>
             </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/foodvictims">Gıda İhtiyacı Olanlar</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/foodhelper">Gıda Yarımı Sağlayanlar</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/househelpers">Evim Müsait</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/tenthelpers">Çadır Yardımı Yapabilenler</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/operatorhelpers">İş Makinesi Kullanabilenler</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-success" routerLink="/transporterhelpers">Yolcu Taşıyabilenler</button>
-            </div>
-        </div>
-    </section>
-  </div>
+        </section>
+    </div>
 
 </body>
+
 </html>
