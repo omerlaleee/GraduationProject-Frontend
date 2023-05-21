@@ -14,10 +14,10 @@ export class FoodHelperComponent {
   constructor(private foodHelperService:FoodHelperService){}
 
   ngOnInit(): void {
-    this.getHouseHelpers();
+    this.getFoodHelpers();
   }
 
-  getHouseHelpers(){
+  getFoodHelpers(){
     this.foodHelperService.getFoodHelpers().subscribe(response=>{
       this.foodHelpers=response.data;
       this.dataLoaded=true;
