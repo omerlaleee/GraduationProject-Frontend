@@ -15,7 +15,7 @@ export class TransporterHelperService {
   apiUrl = "https://localhost:44314/api/";
 
   getTransporterHelpers(): Observable<ListResponseModel<TransporterHelper>> {
-    let getAllUrl = this.apiUrl + "transporterhelpers/getall";
+    let getAllUrl = this.apiUrl + "transporterhelpers/gettransporterhelperdetails";
     return this.httpClient.get<ListResponseModel<TransporterHelper>>(getAllUrl);
   }
 

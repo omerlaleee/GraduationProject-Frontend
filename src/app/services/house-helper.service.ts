@@ -15,7 +15,7 @@ export class HouseHelperService {
   apiUrl = "https://localhost:44314/api/";
 
   getHouseHelpers(): Observable<ListResponseModel<HouseHelper>> {
-    let getAllUrl = this.apiUrl + "househelpers/getall";
+    let getAllUrl = this.apiUrl + "househelpers/gethousehelperdetails";
     return this.httpClient.get<ListResponseModel<HouseHelper>>(getAllUrl);
   }
 

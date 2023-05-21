@@ -2,10 +2,10 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="title">Yemek Yardımı Ekle</h5>
+                <h5 class="title">Seyahat Yardımı Ekle</h5>
             </div>
             <div class="card-body">
-                <form [formGroup]="foodHelperAddForm">
+                <form [formGroup]="transporterHelperAddForm">
                     
                     <div class="mb-3">
                         <label for="infoAboutHelp">Yardım Hakkında Bilgi</label>
@@ -16,18 +16,18 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="numberOfPeople">Yardım Edilecek Kişi Sayısı</label>
+                        <label for="addressFrom">Kalkış Noktası</label>
                         <div class="form-group">
-                            <input type="number" id="numberOfPeople" formControlName="numberOfPeople" class="form-control"
-                                placeholder="Yardım Edilecek Kişi Sayısı" />
+                            <input type="text" id="addressFrom" formControlName="addressFrom" class="form-control"
+                                placeholder="Kalkış Noktası" />
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="mapsAddress">Harita Adresi</label>
+                        <label for="addressTo">Varış Noktası</label>
                         <div class="form-group">
-                            <input type="text" id="mapsAddress" formControlName="mapsAddress" class="form-control"
-                                placeholder="Harita Adresi" />
+                            <input type="text" id="addressTo" formControlName="addressTo" class="form-control"
+                                placeholder="Varış Noktası" />
                         </div>
                     </div>
                 </form>

@@ -18,6 +18,10 @@ import { ColdVictimAddComponent } from './components/cold-victim-add/cold-victim
 import { DebrisVictimAddComponent } from './components/debris-victim-add/debris-victim-add.component';
 import { FoodVictimAddComponent } from './components/food-victim-add/food-victim-add.component';
 import { FoodHelperAddComponent } from './components/food-helper-add/food-helper-add.component';
+import { HouseHelperAddComponent } from './components/house-helper-add/house-helper-add.component';
+import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper-add.component';
+import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
+import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
@@ -25,15 +29,15 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
-  { path: "debrisvictim/add", component: DebrisVictimAddComponent, canActivate: [LoginGuard] },
-  { path: "coldvictim/add", component: ColdVictimAddComponent, canActivate: [LoginGuard] },
-  { path: "foodvictim/add", component: FoodVictimAddComponent, canActivate: [LoginGuard] },
+  { path: "debrisvictim/add", component: DebrisVictimAddComponent },
+  { path: "coldvictim/add", component: ColdVictimAddComponent },
+  { path: "foodvictim/add", component: FoodVictimAddComponent },
 
-  { path: "foodhelpers/add", component: FoodHelperAddComponent },
-  // { path: "tenthelpers/add", component: TentHelperAddComponent},
-  // { path: "househelpers/add", component: HouseHelperAddComponent },
-  // { path: "operatorhelpers/add", component: OperatorHelperAddComponent },
-  // { path: "transporterhelpers/add", component: TransporterHelperAddComponent },
+  { path: "foodhelper/add", component: FoodHelperAddComponent, canActivate: [LoginGuard] },
+  { path: "tenthelper/add", component: TentHelperAddComponent, canActivate: [LoginGuard] },
+  { path: "househelper/add", component: HouseHelperAddComponent, canActivate: [LoginGuard] },
+  { path: "operatorhelper/add", component: OperatorHelperAddComponent, canActivate: [LoginGuard] },
+  { path: "transporterhelper/add", component: TransporterHelperAddComponent, canActivate: [LoginGuard] },
 
   { path: "buildreporters", component: BuildReporterComponent },
   { path: "debrisvictims", component: DebrisVictimComponent },

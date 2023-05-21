@@ -3,19 +3,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
-import { FoodHelperService } from 'src/app/services/food-helper.service';
+import { OperatorHelperService } from 'src/app/services/operator-helper.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-food-helper-add',
-  templateUrl: './food-helper-add.component.html',
-  styleUrls: ['./food-helper-add.component.css']
+  selector: 'app-operator-helper-add',
+  templateUrl: './operator-helper-add.component.html',
+  styleUrls: ['./operator-helper-add.component.css']
 })
-export class FoodHelperAddComponent implements OnInit {
+export class OperatorHelperAddComponent implements OnInit {
+  operatorHelperAddForm: FormGroup;
 
-  foodHelperAddForm: FormGroup;
-
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private foodHelperService: FoodHelperService
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private operatorHelperService: OperatorHelperService
     , private toastrService: ToastrService, public router: Router) { }
 
   loggedInUser: User;
@@ -27,27 +26,26 @@ export class FoodHelperAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoggedInUser();
-    this.createFoodHelperAddForm();
+    this.createOperatorHelperAddForm();
   }
 
-  createFoodHelperAddForm() {
-    this.foodHelperAddForm = this.formBuilder.group({
-      infoAboutHelp: ["", Validators.required],
-      numberOfPeople: ["", Validators.required],
-      mapsAddress: ["", Validators.required]
+  createOperatorHelperAddForm() {
+    this.operatorHelperAddForm = this.formBuilder.group({
+      address: ["", Validators.required],
+      infoAboutHelp: ["", Validators.required]
     })
   }
 
   add() {
-    if (this.foodHelperAddForm.valid) {
-      let foodHelperModel = Object.assign({}, this.foodHelperAddForm.value);
-      foodHelperModel.userId = this.loggedInUser.id;
-      //console.log(foodHelperModel);
-      this.foodHelperService.add(foodHelperModel).subscribe(
+    if (this.operatorHelperAddForm.valid) {
+      let operatorHelperModel = Object.assign({}, this.operatorHelperAddForm.value);
+      operatorHelperModel.userId = this.loggedInUser.id;
+      //console.log(operatorHelperModel);
+      this.operatorHelperService.add(operatorHelperModel).subscribe(
         response => {
           // console.log(response.message);
           this.toastrService.success(response.message, "Başarılı");
-          this.router.navigateByUrl('/foodhelpers');
+          this.router.navigateByUrl('/operatorhelpers');
         },
         responseError => {
           if (responseError.error.ValidationErrors) {

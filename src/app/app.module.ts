@@ -27,6 +27,10 @@ import { ColdVictimAddComponent } from './components/cold-victim-add/cold-victim
 import { DebrisVictimAddComponent } from './components/debris-victim-add/debris-victim-add.component';
 import { FoodVictimAddComponent } from './components/food-victim-add/food-victim-add.component';
 import { FoodHelperAddComponent } from './components/food-helper-add/food-helper-add.component';
+import { HouseHelperAddComponent } from './components/house-helper-add/house-helper-add.component';
+import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper-add.component';
+import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
+import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { FoodHelperAddComponent } from './components/food-helper-add/food-helper
     ColdVictimAddComponent,
     DebrisVictimAddComponent,
     FoodVictimAddComponent,
-    FoodHelperAddComponent
+    FoodHelperAddComponent,
+    HouseHelperAddComponent,
+    TentHelperAddComponent,
+    OperatorHelperAddComponent,
+    TransporterHelperAddComponent
   ],
   imports: [
     BrowserModule,

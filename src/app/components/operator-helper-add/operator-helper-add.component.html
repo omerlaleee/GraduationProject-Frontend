@@ -1,0 +1,32 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Operatör Yardımı Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="operatorHelperAddForm">
+                    
+                    <div class="mb-3">
+                        <label for="address">Operatörün Çalışacabileceği Adres</label>
+                        <div class="form-group">
+                            <input type="text" id="address" formControlName="address" class="form-control"
+                                placeholder="Operatörün Çalışacabileceği Adres" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="infoAboutHelp">Yardım Hakkında Bilgi</label>
+                        <div class="form-group">
+                            <input type="text" id="infoAboutHelp" formControlName="infoAboutHelp" class="form-control"
+                                placeholder="Yardım Hakkında Bilgi" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

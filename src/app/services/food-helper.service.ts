@@ -4,6 +4,8 @@ import { FoodHelper } from '../models/foodHelper';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/responseModel';
+import { UserService } from './user.service';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
