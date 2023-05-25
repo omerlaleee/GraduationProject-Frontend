@@ -36,7 +36,7 @@ export class DebrisVictimAddComponent {
   add() {
     if (this.debrisVictimAddForm.valid) {
       let debrisVictimModel = Object.assign({}, this.debrisVictimAddForm.value);
-      //console.log(coldVictimModel);
+      console.log(debrisVictimModel);
       this.debrisVictimService.add(debrisVictimModel).subscribe(
         response => {
           // console.log(response.message);
@@ -55,6 +55,7 @@ export class DebrisVictimAddComponent {
     }
     else {
       this.toastrService.error("Formunuz Eksik!", "Hata");
+      //console.log(this.debrisVictimAddForm.)
     }
   }
 }

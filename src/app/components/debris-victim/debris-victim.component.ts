@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Victim } from 'src/app/models/victim';
 import { DebrisVictimService } from 'src/app/services/debris-victim.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-debris-victim',
@@ -10,6 +11,7 @@ import { DebrisVictimService } from 'src/app/services/debris-victim.service';
 export class DebrisVictimComponent implements OnInit {
   victims: Victim[];
   dataLoaded = false;
+  filterText = "";
 
   constructor(private debrisVictimService:DebrisVictimService){}
 

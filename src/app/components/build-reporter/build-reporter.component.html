@@ -3,11 +3,26 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div *ngIf="dataLoaded==true" class="mb-3">
+    <label for="filterText" class="form-label">Adrese Göre Filtrele : </label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="Arama İfadesi Giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} Aradınız.
+</div>
+
+
+
+
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Kullanıcı Id</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Email</th>
+            <th>Telefon Numarası</th>
             <th>Adres</th>
             <th>Detaylı Adres</th>
             <th>Aciliyet</th>
@@ -16,9 +31,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of buildReporters">
+        <tr *ngFor="let item of buildReporters | filterPipe:filterText">
             <td>{{item.id}}</td>
-            <td>{{item.userId}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
             <td>{{item.address}}</td>
             <td>{{item.detailedAddress}}</td>
             <td>{{item.urgency}}</td>

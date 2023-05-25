@@ -106,7 +106,7 @@
                 <div class="grid gap-4 sm:grid-cols-2">
 
                     <div class="flex flex-col gap-2">
-                        <div><label class="text-sm font-semibold" for="fullName">İsim</label></div>
+                        <div><label class="text-sm font-semibold" for="name">İsim</label></div>
                         <div class="relative">
                             <span
                                 class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -117,14 +117,14 @@
                                     </path>
                                 </svg>
                             </span>
-                            <input placeholder="İsim" tabindex="0" type="text" name="fullName" id="fullName"
-                                class="pl-10" aria-label="İsim" value="" formControlName="name">
+                            <input placeholder="İsim" tabindex="0" type="text" name="name" id="name" class="pl-10"
+                                aria-label="İsim" value="" formControlName="name">
                         </div>
                     </div>
 
                     <div class="flex flex-col gap-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="fullName">Soyisim</label></div>
+                            <div><label class="text-sm font-semibold" for="surname">Soyisim</label></div>
                             <div class="relative">
                                 <span
                                     class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -136,7 +136,7 @@
                                         </path>
                                     </svg>
                                 </span>
-                                <input placeholder="Soyisim" tabindex="0" type="text" name="fullName" id="fullName"
+                                <input placeholder="Soyisim" tabindex="0" type="text" name="fullName" id="surname"
                                     class="pl-10" aria-label="Soyisim" value="" formControlName="surname">
                             </div>
                         </div>
@@ -155,13 +155,13 @@
                                 </svg>
                             </span>
                             <input placeholder="E-posta" tabindex="0" type="email" name="email" id="email" class="pl-10"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" aria-label="Email" value=""
-                                formControlName="email">
+                                aria-label="Email" value="" formControlName="email">
                         </div>
                     </div>
+                    <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" -->
 
                     <div class="flex flex-col gap-2">
-                        <div><label class="text-sm font-semibold" for="phone">Telefon Numarası</label></div>
+                        <div><label class="text-sm font-semibold" for="phoneNumber">Telefon Numarası</label></div>
                         <div class="relative">
                             <span
                                 class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -172,15 +172,15 @@
                                     </path>
                                 </svg>
                             </span>
-                            <input placeholder="Telefon Numarası" tabindex="0" type="tel" name="phone" id="phone"
-                                class="pl-10" pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" aria-label="Telefon" value=""
-                                formControlName="phoneNumber">
+                            <input placeholder="Telefon Numarası" tabindex="0" type="tel" name="phone" id="phoneNumber"
+                                class="pl-10" aria-label="Telefon" value="" formControlName="phoneNumber">
                         </div>
                     </div>
+                    <!-- pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" -->
 
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="bodyCount">Kişi Sayısı</label></div>
+                            <div><label class="text-sm font-semibold" for="numberOfPeople">Kişi Sayısı</label></div>
                             <div class="relative">
                                 <span
                                     class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -193,7 +193,7 @@
                                     </svg>
                                 </span>
                                 <input placeholder="Kişi Sayısı" tabindex="0" type="number" name="bodyCount"
-                                    id="bodyCount" class="pl-10" aria-label="Kişi Sayısı" min="1" value=""
+                                    id="numberOfPeople" class="pl-10" aria-label="Kişi Sayısı" min="1" value=""
                                     formControlName="numberOfPeople">
                             </div>
                         </div>
@@ -225,7 +225,7 @@
 
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="addressDetail">Adres Tarifi</label></div>
+                            <div><label class="text-sm font-semibold" for="detailedAddress">Adres Tarifi</label></div>
                             <div class="relative">
                                 <span
                                     class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -237,7 +237,7 @@
                                         </path>
                                     </svg>
                                 </span>
-                                <textarea name="addressDetail" id="addressDetail" class="pl-10 resize-none"
+                                <textarea name="addressDetail" id="detailedAddress" class="pl-10 resize-none"
                                     placeholder="Adres Tarifi" tabindex="0" aria-label="Adres Tarifi" rows="1"
                                     style="height: 40px;" formControlName="detailedAddress">
                                 </textarea>
@@ -247,20 +247,22 @@
 
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="physicalCondition">Aciliyet</label></div>
+                            <div><label class="text-sm font-semibold" for="urgency">Aciliyet</label></div>
                             <div class="relative">
                                 <div class="grid grid-flow-row gap-4 sm:grid-flow-col">
-                                    <div class="flex items-center gap-2"><input name="physicalCondition" id="Normal-0"
-                                            type="radio" class="" tabindex="0" aria-label="Normal" value="Normal">
+                                    <div class="flex items-center gap-2">
+                                        <input name="urgency" id="Normal-0" type="radio" class="" tabindex="0"
+                                            aria-label="Normal" value="Normal" >
                                         <label for="Normal-0" class="cursor-pointer font-semibold">Normal </label>
                                     </div>
-                                    <div class="flex items-center gap-2"><input name="physicalCondition" id="Orta-1"
-                                            type="radio" class="" tabindex="0" aria-label="Orta" value="Orta">
+                                    <div class="flex items-center gap-2">
+                                        <input name="urgency" id="Orta-1" type="radio" class="" tabindex="0"
+                                            aria-label="Orta" value="Orta" formControlName="urgency">
                                         <label for="Orta-1" class="cursor-pointer font-semibold">Orta</label>
                                     </div>
-                                    <div class="flex items-center gap-2"><input name="physicalCondition" id="Kritik-2"
-                                            type="radio" class="" tabindex="0" aria-label="Kritik" value="Kritik"
-                                            checked="">
+                                    <div class="flex items-center gap-2">
+                                        <input name="urgency" id="Kritik-2" type="radio" class="" tabindex="0"
+                                            aria-label="Kritik" value="Kritik" checked="" formControlName="urgency">
                                         <label for="Kritik-2" class="cursor-pointer font-semibold">Kritik </label>
                                     </div>
                                 </div>
@@ -271,7 +273,7 @@
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
                             <div>
-                                <label class="text-sm font-semibold" for="physicalConditionDetail">Fiziki Durum Hakkında
+                                <label class="text-sm font-semibold" for="statusInformation">Fiziki Durum Hakkında
                                     Bilgi</label>
                             </div>
                             <div class="relative"><span
@@ -284,7 +286,7 @@
                                         </path>
                                     </svg>
                                 </span>
-                                <textarea name="physicalConditionDetail" id="physicalConditionDetail"
+                                <textarea name="physicalConditionDetail" id="statusInformation"
                                     class="pl-10 resize-none" placeholder="Durum Bilgisi" tabindex="0"
                                     aria-label="Fiziki Durum Hakkında Bilgi" rows="2" style="height: 64px;"
                                     formControlName="statusInformation">
@@ -295,7 +297,7 @@
 
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="address">Harita Adresi</label></div>
+                            <div><label class="text-sm font-semibold" for="mapsAddress">Harita Adresi</label></div>
                             <div class="relative">
                                 <span
                                     class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -310,7 +312,7 @@
                                     </svg>
                                 </span>
                                 <input placeholder="Harita Adresi" tabindex="0" type="text" class="pl-10"
-                                    aria-label="İsim" value="" formControlName="mapsAddress">
+                                    id="mapsAddress" aria-label="İsim" value="" formControlName="mapsAddress">
                             </div>
                         </div>
                     </div>

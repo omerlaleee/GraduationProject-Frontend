@@ -15,7 +15,7 @@ export class BuildReporterService {
   apiUrl = "https://localhost:44314/api/";
 
   getBuildReporters(): Observable<ListResponseModel<BuildReporter>> {
-    let getAllUrl = this.apiUrl + "buildreporters/getall";
+    let getAllUrl = this.apiUrl + "buildreporters/getbuildreporterdetails";
     return this.httpClient.get<ListResponseModel<BuildReporter>>(getAllUrl);
   }
 

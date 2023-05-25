@@ -32,6 +32,7 @@ import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper
 import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
 import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     TentHelperAddComponent,
     OperatorHelperAddComponent,
     TransporterHelperAddComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterPipePipe
   ],
   imports: [
     BrowserModule,
@@ -70,8 +72,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
-    NgbModule
-
+    NgbModule,
+    FormsModule
   ],
   providers: [
     {
