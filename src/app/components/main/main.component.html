@@ -68,7 +68,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html class="antialiased light" style="color-scheme: light;">
 
 <!-- <head>
     <title>Güzel Bir HTML Sayfası</title>
@@ -106,8 +106,7 @@
     </style>
 </head> -->
 
-<body>
-
+<body class="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white vsc-initialized">
     <div class="mx-auto max-w-screen-lg px-6">
         <section class="section-divider mt-20">
             <h2 class="mb-5">Yardım Talep Et</h2>
@@ -152,15 +151,15 @@
                 </button>
 
                 <button type="button"
-                    class="inline-flex grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 h-16 text-amber-600 shadow-md"
+                    class="inline-flex grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800 h-16 text-yellow-600 shadow-md"
                     routerLink="/buildreporter/add">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="32" height="32">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-building" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z">
                         </path>
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z">
+                        <path
+                            d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z">
                         </path>
                     </svg>
                     <span>Ev Raporlama Ekle</span>
@@ -175,7 +174,7 @@
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/operatorhelper/add">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z">
                         </path>
@@ -187,7 +186,7 @@
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/transporterhelper/add">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12">
                         </path>
@@ -198,10 +197,16 @@
                 <button type="button"
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/tenthelper/add">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+                        <path d="M7 43H39L23 17L7 43Z" fill="none" stroke="#333" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.0769 25L23 28L27.9231 25" stroke="#333" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M23 17V12V4" stroke="#333" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M35 4H23V12H35L32 8L35 4Z" fill="none" stroke="#333" stroke-width="1"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <span>Çadır Yardımı Yap</span>
                 </button>
@@ -210,7 +215,7 @@
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/househelper/add">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25">
                         </path>
@@ -221,11 +226,39 @@
                 <button type="button"
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/foodhelper/add">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                        <path d="M322,416c0,35.35-20.65,64-56,64H134c-35.35,0-56-28.65-56-64"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+                        </path>
+                        <path
+                            d="M336,336c17.67,0,32,17.91,32,40h0c0,22.09-14.33,40-32,40H64c-17.67,0-32-17.91-32-40h0c0-22.09,14.33-40,32-40"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <path
+                            d="M344,336H179.31a8,8,0,0,0-5.65,2.34l-26.83,26.83a4,4,0,0,1-5.66,0l-26.83-26.83a8,8,0,0,0-5.65-2.34H56a24,24,0,0,1-24-24h0a24,24,0,0,1,24-24H344a24,24,0,0,1,24,24h0A24,24,0,0,1,344,336Z"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <path d="M64,276v-.22c0-55,45-83.78,100-83.78h72c55,0,100,29,100,84v-.22"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <line x1="241" y1="112" x2="248.44" y2="175.97"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+                        </line>
+                        <path d="M256,480H395.31a32,32,0,0,0,31.91-29.61L463,112"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <polyline points="368 112 384 48 431 32"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px">
+                        </polyline>
+                        <line x1="224" y1="112" x2="480" y2="112"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+                        </line>
+                    </svg>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
-                    </svg>
+                    </svg> -->
                     <span>Gıda Yardımı Yap</span>
                 </button>
             </div>
@@ -248,15 +281,15 @@
                 </button>
 
                 <button type="button"
-                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800  text-amber-600 shadow-md"
+                    class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800  text-yellow-600 shadow-md"
                     routerLink="/buildreporters">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="32" height="32">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-building" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z">
                         </path>
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z">
+                        <path
+                            d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z">
                         </path>
                     </svg>
                     <span>Raporlanan Evler</span>
@@ -291,19 +324,42 @@
                 <button type="button"
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/foodhelpers">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+                        <path d="M322,416c0,35.35-20.65,64-56,64H134c-35.35,0-56-28.65-56-64"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+                        </path>
+                        <path
+                            d="M336,336c17.67,0,32,17.91,32,40h0c0,22.09-14.33,40-32,40H64c-17.67,0-32-17.91-32-40h0c0-22.09,14.33-40,32-40"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <path
+                            d="M344,336H179.31a8,8,0,0,0-5.65,2.34l-26.83,26.83a4,4,0,0,1-5.66,0l-26.83-26.83a8,8,0,0,0-5.65-2.34H56a24,24,0,0,1-24-24h0a24,24,0,0,1,24-24H344a24,24,0,0,1,24,24h0A24,24,0,0,1,344,336Z"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <path d="M64,276v-.22c0-55,45-83.78,100-83.78h72c55,0,100,29,100,84v-.22"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <line x1="241" y1="112" x2="248.44" y2="175.97"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+                        </line>
+                        <path d="M256,480H395.31a32,32,0,0,0,31.91-29.61L463,112"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"
+                            id="mainIconPathAttribute"></path>
+                        <polyline points="368 112 384 48 431 32"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px">
+                        </polyline>
+                        <line x1="224" y1="112" x2="480" y2="112"
+                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+                        </line>
                     </svg>
-                    <span>Gıda Yarımı Sağlayanlar</span>
+                    <span>Gıda Yardımı Sağlayanlar</span>
                 </button>
 
                 <button type="button"
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/househelpers">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25">
                         </path>
@@ -314,16 +370,17 @@
                 <button type="button"
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/tenthelpers">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
-                        <path
-                            d="M396.6 6.546C408.1-2.182 423.9-2.182 435.4 6.546L603.4 134.5C610 139.6 614.4 147 615.6 155.3L639.6 315.3C641 324.5 638.3 333.8 632.2 340.9C626.2 347.9 617.3 352 608 352H461.5L455.3 310.5C452.8 294 444 279.2 430.8 269.1L262.8 141.1C254.6 134.9 245.4 130.9 235.8 129.1L396.6 6.546zM411.4 294.5C418 299.6 422.4 307 423.6 315.3L447.6 475.3C449 484.5 446.3 493.8 440.2 500.9C434.2 507.9 425.3 512 416 512H319.1L223.1 352V512H32C22.68 512 13.83 507.9 7.753 500.9C1.674 493.8-1.028 484.5 .3542 475.3L24.35 315.3C25.59 307 29.98 299.6 36.61 294.5L204.6 166.5C216.1 157.8 231.9 157.8 243.4 166.5L411.4 294.5z" />
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+                        <path d="M7 43H39L23 17L7 43Z" fill="none" stroke="#333" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.0769 25L23 28L27.9231 25" stroke="#333" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M23 17V12V4" stroke="#333" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M35 4H23V12H35L32 8L35 4Z" fill="none" stroke="#333" stroke-width="1"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
-                    </svg> -->
                     <span>Çadır Yardımı Yapabilenler</span>
                 </button>
 
@@ -331,7 +388,7 @@
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/operatorhelpers">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z">
                         </path>
@@ -343,7 +400,7 @@
                     class="inline-flex h-14 grow items-center gap-4 rounded-xl px-5 border border-zinc-200 font-semibold transition hover:bg-zinc-100 hover:shadow-lg dark:border-zinc-800 dark:hover:bg-zinc-800"
                     routerLink="/transporterhelpers">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" width="24" height="24">
+                        stroke="currentColor" aria-hidden="true" width="32" height="32">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12">
                         </path>
@@ -353,7 +410,6 @@
             </div>
         </section>
     </div>
-
 </body>
 
 </html>

@@ -1382,6 +1382,11 @@
         color: rgb(220 38 38/var(--tw-text-opacity))
     }
 
+    .text-yellow-600 {
+        --tw-text-opacity: 1;
+        color: rgb(111 136 0/var(--tw-text-opacity))
+    }
+
     .text-transparent {
         color: transparent
     }
