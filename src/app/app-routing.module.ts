@@ -22,6 +22,7 @@ import { HouseHelperAddComponent } from './components/house-helper-add/house-hel
 import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper-add.component';
 import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
 import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
@@ -47,7 +48,8 @@ const routes: Routes = [
   { path: "househelpers", component: HouseHelperComponent },
   { path: "tenthelpers", component: TentHelperComponent },
   { path: "operatorhelpers", component: OperatorHelperComponent },
-  { path: "transporterhelpers", component: TransporterHelperComponent }
+  { path: "transporterhelpers", component: TransporterHelperComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

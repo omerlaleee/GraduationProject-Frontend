@@ -31,6 +31,7 @@ import { HouseHelperAddComponent } from './components/house-helper-add/house-hel
 import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper-add.component';
 import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
 import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TransporterHelperAddComponent } from './components/transporter-helper-a
     HouseHelperAddComponent,
     TentHelperAddComponent,
     OperatorHelperAddComponent,
-    TransporterHelperAddComponent
+    TransporterHelperAddComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
