@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
@@ -29,4 +29,69 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<html>
+
+<body class="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white vsc-initialized">
+    <div class="mx-auto max-w-screen-lg px-6">
+        <div class="mx-auto max-w-screen-sm">
+            <h1 class="mb-5">İş Makinesi Kullanabilirim!</h1>
+            <form [formGroup]="operatorHelperAddForm">
+                <div class="grid gap-4 sm:grid-cols-2">
+
+                    <div class="sm:col-span-2">
+                        <div class="flex flex-col gap-2">
+                            <div><label class="text-sm font-semibold" for="address">Operatörün Çalışacabileceği Adres</label></div>
+                            <div class="relative">
+                                <span
+                                    class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="20"
+                                        height="20">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <textarea name="address" id="address" class="pl-10 resize-none" placeholder="Adres"
+                                    tabindex="0" aria-label="Adres" rows="2" style="height: 64px;"
+                                    formControlName="address">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <div class="flex flex-col gap-2">
+                            <div><label class="text-sm font-semibold" for="detailedAddress">Yardım Hakkında Bilgi</label></div>
+                            <div class="relative">
+                                <span
+                                    class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="20"
+                                        height="20">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <textarea name="infoAboutHelp" id="infoAboutHelp" class="pl-10 resize-none"
+                                    placeholder="Yardım Hakkında Bilgi" tabindex="0" aria-label="Adres Tarifi" rows="1"
+                                    style="height: 40px;" formControlName="infoAboutHelp">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

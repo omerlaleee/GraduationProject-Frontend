@@ -70,7 +70,7 @@
 
     <main class="form-signin w-100 m-auto">
         <form [formGroup]="loginForm">
-            <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+            <h1 class="h3 mb-3 fw-normal" style="color:gray;">Giriş Yap</h1>
 
             <div class="form-floating">
                 <input formControlName="email" type="email" class="form-control" id="floatingInput"
@@ -84,13 +84,13 @@
             </div>
 
             <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Beni Hatırla
+                <label style="color:bisque">
+                    <input  type="checkbox" value="remember-me"> Beni Hatırla
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" (click)="login()">Giriş Yap</button>
-            <div class="checkbox m-3">
-                <button type="button" class="btn btn-success" routerLink="/register">Kayıt Ol</button>
+            <div class="checkbox m-3" >
+                <button style="background-color: green;" type="button" class="btn btn-success" routerLink="/register">Kayıt Ol</button>
             </div>
             <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
         </form>
