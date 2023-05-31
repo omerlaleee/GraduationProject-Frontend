@@ -10,6 +10,7 @@ import { FoodVictimService } from 'src/app/services/food-victim.service';
 export class FoodVictimComponent implements OnInit {
   victims: Victim[];
   dataLoaded = false;
+  filterText = "";
 
   constructor(private foodVictimService:FoodVictimService){}
 

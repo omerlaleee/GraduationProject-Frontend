@@ -10,6 +10,7 @@ import { ColdVictimService } from 'src/app/services/cold-victim.service';
 export class ColdVictimComponent implements OnInit {
   victims: Victim[];
   dataLoaded = false;
+  filterText = "";
 
   constructor(private coldVictimService:ColdVictimService){}
 

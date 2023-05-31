@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { OperatorHelperService } from 'src/app/services/operator-helper.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,18 +15,13 @@ import { UserService } from 'src/app/services/user.service';
 export class OperatorHelperAddComponent implements OnInit {
   operatorHelperAddForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private operatorHelperService: OperatorHelperService
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private operatorHelperService: OperatorHelperService
     , private toastrService: ToastrService, public router: Router) { }
 
-  loggedInUser: User;
-  getLoggedInUser() {
-    this.userService.getUserByEmail(window.localStorage.getItem("email")).subscribe(response => {
-      this.loggedInUser = response.data;
-    });
-  }
+    
 
   ngOnInit(): void {
-    this.getLoggedInUser();
+    
     this.createOperatorHelperAddForm();
   }
 
@@ -39,7 +35,7 @@ export class OperatorHelperAddComponent implements OnInit {
   add() {
     if (this.operatorHelperAddForm.valid) {
       let operatorHelperModel = Object.assign({}, this.operatorHelperAddForm.value);
-      operatorHelperModel.userId = this.loggedInUser.id;
+      operatorHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(operatorHelperModel);
       this.operatorHelperService.add(operatorHelperModel).subscribe(
         response => {

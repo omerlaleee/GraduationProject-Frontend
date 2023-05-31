@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -32,7 +32,11 @@ import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper
 import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
 import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { AddressFilterPipe } from './pipes/address-filter.pipe';
+import { MapsAddressFilterPipe } from './pipes/maps-address-filter.pipe';
+import { AddressFromFilterPipe } from './pipes/address-from-filter.pipe';
+import { AddressToFilterPipe } from './pipes/address-to-filter.pipe';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,10 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     OperatorHelperAddComponent,
     TransporterHelperAddComponent,
     PageNotFoundComponent,
-    FilterPipePipe
+    AddressFilterPipe,
+    MapsAddressFilterPipe,
+    AddressFromFilterPipe,
+    AddressToFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -70,7 +77,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     AppRoutingModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      positionClass:"toast-bottom-right"
+      positionClass: "toast-bottom-right"
     }),
     NgbModule,
     FormsModule
@@ -80,7 +87,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     }
   ]
-,
+  ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

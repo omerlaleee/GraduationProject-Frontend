@@ -3,6 +3,15 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div *ngIf="dataLoaded==true" class="mb-3">
+    <label for="filterText" class="form-label">Harita Adresine Göre Filtrele : </label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="Arama İfadesi Giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} Aradınız.
+</div>
+
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
@@ -17,7 +26,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of foodHelpers">
+        <tr *ngFor="let item of foodHelpers | mapsAddressFilter:filterText">
             <td>{{item.id}}</td>
             <td>{{item.firstName}}</td>
             <td>{{item.lastName}}</td>

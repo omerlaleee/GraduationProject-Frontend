@@ -10,7 +10,8 @@ import { FoodHelperService } from 'src/app/services/food-helper.service';
 export class FoodHelperComponent {
   foodHelpers: FoodHelper[];
   dataLoaded = false;
-
+  filterText = "";
+  
   constructor(private foodHelperService:FoodHelperService){}
 
   ngOnInit(): void {

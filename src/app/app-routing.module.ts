@@ -23,11 +23,14 @@ import { TentHelperAddComponent } from './components/tent-helper-add/tent-helper
 import { OperatorHelperAddComponent } from './components/operator-helper-add/operator-helper-add.component';
 import { TransporterHelperAddComponent } from './components/transporter-helper-add/transporter-helper-add.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { NaviComponent } from './components/navi/navi.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "myprofile", component: MyProfileComponent, canActivate: [LoginGuard] },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "debrisvictim/add", component: DebrisVictimAddComponent },

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { TentHelperService } from 'src/app/services/tent-helper.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,18 +15,11 @@ import { UserService } from 'src/app/services/user.service';
 export class TentHelperAddComponent implements OnInit {
   tentHelperAddForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private tentHelperService: TentHelperService
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private tentHelperService: TentHelperService
     , private toastrService: ToastrService, public router: Router) { }
 
-  loggedInUser: User;
-  getLoggedInUser() {
-    this.userService.getUserByEmail(window.localStorage.getItem("email")).subscribe(response => {
-      this.loggedInUser = response.data;
-    });
-  }
 
   ngOnInit(): void {
-    this.getLoggedInUser();
     this.createTentHelperAddForm();
   }
 
@@ -40,7 +34,7 @@ export class TentHelperAddComponent implements OnInit {
   add() {
     if (this.tentHelperAddForm.valid) {
       let tentHelperModel = Object.assign({}, this.tentHelperAddForm.value);
-      tentHelperModel.userId = this.loggedInUser.id;
+      tentHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(tentHelperModel);
       this.tentHelperService.add(tentHelperModel).subscribe(
         response => {

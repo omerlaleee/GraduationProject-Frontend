@@ -11,6 +11,7 @@ import { TentHelperService } from 'src/app/services/tent-helper.service';
 export class TentHelperComponent {
   tentHelpers: TentHelper[];
   dataLoaded = false;
+  filterText = "";
 
   constructor(private tentHelperService:TentHelperService){}
 

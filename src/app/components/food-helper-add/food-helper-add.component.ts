@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { FoodHelperService } from 'src/app/services/food-helper.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-food-helper-add',
@@ -15,18 +14,10 @@ export class FoodHelperAddComponent implements OnInit {
 
   foodHelperAddForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private foodHelperService: FoodHelperService
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private foodHelperService: FoodHelperService
     , private toastrService: ToastrService, public router: Router) { }
 
-  loggedInUser: User;
-  getLoggedInUser() {
-    this.userService.getUserByEmail(window.localStorage.getItem("email")).subscribe(response => {
-      this.loggedInUser = response.data;
-    });
-  }
-
   ngOnInit(): void {
-    this.getLoggedInUser();
     this.createFoodHelperAddForm();
   }
 
@@ -41,7 +32,7 @@ export class FoodHelperAddComponent implements OnInit {
   add() {
     if (this.foodHelperAddForm.valid) {
       let foodHelperModel = Object.assign({}, this.foodHelperAddForm.value);
-      foodHelperModel.userId = this.loggedInUser.id;
+      foodHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(foodHelperModel);
       this.foodHelperService.add(foodHelperModel).subscribe(
         response => {

@@ -1,6 +1,15 @@
-<b>Gıda Yardımı Sağlayabilenler</b>
+<b>İş Makinesi Yardımı Sağlayabilenler</b>
 <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
+</div>
+
+<div *ngIf="dataLoaded==true" class="mb-3">
+    <label for="filterText" class="form-label">Adrese Göre Filtrele : </label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="Arama İfadesi Giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} Aradınız.
 </div>
 
 <table *ngIf="dataLoaded==true" class="table">
@@ -16,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of operatorHelpers">
+        <tr *ngFor="let item of operatorHelpers | addressFilter:filterText">
             <td>{{item.id}}</td>
             <td>{{item.firstName}}</td>
             <td>{{item.lastName}}</td>

@@ -12,9 +12,6 @@
     {{filterText}} Aradınız.
 </div>
 
-
-
-
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
@@ -31,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of buildReporters | filterPipe:filterText">
+        <tr *ngFor="let item of buildReporters | addressFilter:filterText">
             <td>{{item.id}}</td>
             <td>{{item.firstName}}</td>
             <td>{{item.lastName}}</td>

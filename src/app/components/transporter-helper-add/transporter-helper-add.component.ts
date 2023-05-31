@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { TransporterHelperService } from 'src/app/services/transporter-helper.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,18 +15,11 @@ import { UserService } from 'src/app/services/user.service';
 export class TransporterHelperAddComponent implements OnInit {
   transporterHelperAddForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private transporterHelperService: TransporterHelperService
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private transporterHelperService: TransporterHelperService
     , private toastrService: ToastrService, public router: Router) { }
 
-  loggedInUser: User;
-  getLoggedInUser() {
-    this.userService.getUserByEmail(window.localStorage.getItem("email")).subscribe(response => {
-      this.loggedInUser = response.data;
-    });
-  }
 
   ngOnInit(): void {
-    this.getLoggedInUser();
     this.createTransporterHelperAddForm();
   }
 
@@ -40,7 +34,7 @@ export class TransporterHelperAddComponent implements OnInit {
   add() {
     if (this.transporterHelperAddForm.valid) {
       let transporterHelperModel = Object.assign({}, this.transporterHelperAddForm.value);
-      transporterHelperModel.userId = this.loggedInUser.id;
+      transporterHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(transporterHelperModel);
       this.transporterHelperService.add(transporterHelperModel).subscribe(
         response => {

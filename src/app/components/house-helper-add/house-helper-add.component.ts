@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { HouseHelperService } from 'src/app/services/house-helper.service';
-import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-house-helper-add',
@@ -15,18 +15,10 @@ export class HouseHelperAddComponent implements OnInit {
 
   houseHelperAddForm: FormGroup;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private houseHelperService: HouseHelperService
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private houseHelperService: HouseHelperService
     , private toastrService: ToastrService, public router: Router) { }
 
-  loggedInUser: User;
-  getLoggedInUser() {
-    this.userService.getUserByEmail(window.localStorage.getItem("email")).subscribe(response => {
-      this.loggedInUser = response.data;
-    });
-  }
-
   ngOnInit(): void {
-    this.getLoggedInUser();
     this.createHouseHelperAddForm();
   }
 
@@ -41,7 +33,7 @@ export class HouseHelperAddComponent implements OnInit {
   add() {
     if (this.houseHelperAddForm.valid) {
       let houseHelperModel = Object.assign({}, this.houseHelperAddForm.value);
-      houseHelperModel.userId = this.loggedInUser.id;
+      houseHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(houseHelperModel);
       this.houseHelperService.add(houseHelperModel).subscribe(
         response => {

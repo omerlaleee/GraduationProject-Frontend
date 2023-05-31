@@ -10,6 +10,7 @@ import { HouseHelperService } from 'src/app/services/house-helper.service';
 export class HouseHelperComponent {
   houseHelpers: HouseHelper[];
   dataLoaded = false;
+  filterText = "";
 
   constructor(private houseHelperService:HouseHelperService){}
 

@@ -6,22 +6,34 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { RegisterModel } from '../models/registerModel';
 import { JwtModule, JwtHelperService } from "@auth0/angular-jwt";
+import { User } from '../models/user';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) { }
+
+
+  constructor(private httpClient: HttpClient, private userService: UserService) { }
 
   apiUrl = "https://localhost:44314/api/auth/";
   helper = new JwtHelperService();
+  loggedInUser: User;
 
   login(loginModel: LoginModel): Observable<SingleResponseModel<TokenModel>> {
+    this.getLoggedInUser(loginModel.email);
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "login", loginModel);
   }
 
-  logout(){
+  getLoggedInUser(email: string) {
+    this.userService.getUserByEmail(email).subscribe(response => {
+      this.loggedInUser = response.data;
+    });
+  }
+
+  logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("email");
   }

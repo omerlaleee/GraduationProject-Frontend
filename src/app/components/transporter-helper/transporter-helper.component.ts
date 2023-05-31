@@ -10,6 +10,8 @@ import { TransporterHelperService } from 'src/app/services/transporter-helper.se
 export class TransporterHelperComponent {
   transporterHelpers: TransporterHelper[];
   dataLoaded = false;
+  filterText = "";
+  filterText2 = "";
 
   constructor(private transporterHelperService:TransporterHelperService){}
 

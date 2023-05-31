@@ -5,13 +5,15 @@ import { ResponseModel } from '../models/responseModel';
 import { ListResponseModel } from '../models/listResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { ClaimModel } from '../models/claimModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { 
+  }
 
   apiUrl = "https://localhost:44314/api/";
 
@@ -28,4 +30,10 @@ export class UserService {
   add(user: User): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "users/add", user);
   }
+
+  // getClaimsOfUser(userId: number | null): Observable<SingleResponseModel<ClaimModel>> {
+  //   let getUserByEmailUrl = this.apiUrl + "users/getbyemail?email=" + email;
+  //   return this.httpClient.get<SingleResponseModel<User>>(getUserByEmailUrl);
+  // }
+  
 }

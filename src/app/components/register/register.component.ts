@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit{
         //console.log(response);
         window.localStorage.setItem("token", response.data.token);
         window.localStorage.setItem("email", registerModel.email);
+        this.authService.getLoggedInUser(registerModel.email);
         this.toastrService.success(response.message, "Kayıt Başarılı");
         this.router.navigate(["/"]);
       }

@@ -10,7 +10,8 @@ import { OperatorHelperService } from 'src/app/services/operator-helper.service'
 export class OperatorHelperComponent implements OnInit {
   operatorHelpers: OperatorHelper[];
   dataLoaded = false;
-
+  filterText = "";
+  
   constructor(private operatorHelperService:OperatorHelperService){}
 
   ngOnInit(): void {

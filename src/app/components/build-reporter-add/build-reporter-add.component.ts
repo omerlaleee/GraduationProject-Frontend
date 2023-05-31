@@ -3,8 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms"
 import { BuildReporterService } from 'src/app/services/build-reporter.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-build-reporter-add',
@@ -15,17 +14,9 @@ export class BuildReporterAddComponent implements OnInit {
 
   buildReporterAddForm: FormGroup;
 
-  constructor(private userService: UserService, public router: Router, private formBuilder: FormBuilder, private buildReporterService: BuildReporterService, private toastrService: ToastrService) { }
-
-  loggedInUser: User;
-  getLoggedInUser() {
-    this.userService.getUserByEmail(window.localStorage.getItem("email")).subscribe(response => {
-      this.loggedInUser = response.data;
-    });
-  }
+  constructor(private authService: AuthService, public router: Router, private formBuilder: FormBuilder, private buildReporterService: BuildReporterService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-    this.getLoggedInUser();
     this.createBuildReporterAddForm();
   }
 
@@ -41,7 +32,7 @@ export class BuildReporterAddComponent implements OnInit {
   add() {
     if (this.buildReporterAddForm.valid) {
       let buildReporterModel = Object.assign({}, this.buildReporterAddForm.value);
-      buildReporterModel.userId = this.loggedInUser.id;
+      buildReporterModel.userId = this.authService.loggedInUser.id;
       //console.log(buildReporterModel);
       this.buildReporterService.add(buildReporterModel).subscribe(
         response => {
@@ -56,7 +47,7 @@ export class BuildReporterAddComponent implements OnInit {
             }
           }
           else {
-            this.toastrService.error("Sisteme Giriş Yapmalısınız!","Yetki Hatası");
+            this.toastrService.error("Sisteme Giriş Yapmalısınız!", "Yetki Hatası");
             this.router.navigateByUrl('/login');
           }
         });
