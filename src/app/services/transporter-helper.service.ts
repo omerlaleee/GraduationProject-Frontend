@@ -19,7 +19,16 @@ export class TransporterHelperService {
     return this.httpClient.get<ListResponseModel<TransporterHelper>>(getAllUrl);
   }
 
+  getTransporterHelpersByEmail(email:string): Observable<ListResponseModel<TransporterHelper>> {
+    let getAllUrl = this.apiUrl + "transporterhelpers/gettransporterhelperdetails?email="+email;
+    return this.httpClient.get<ListResponseModel<TransporterHelper>>(getAllUrl);
+  }
+
   add(operatorHelper: TransporterHelper): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "transporterhelpers/add", operatorHelper);
+  }
+
+  delete(operatorHelper: TransporterHelper): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "transporterhelpers/delete", operatorHelper);
   }
 }

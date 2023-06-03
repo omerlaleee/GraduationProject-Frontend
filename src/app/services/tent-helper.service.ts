@@ -19,7 +19,16 @@ export class TentHelperService {
     return this.httpClient.get<ListResponseModel<TentHelper>>(getAllUrl);
   }
 
-  add(operatorHelper: TentHelper): Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "tenthelpers/add", operatorHelper);
+  getTentHelpersByEmail(email:string): Observable<ListResponseModel<TentHelper>> {
+    let getAllUrl = this.apiUrl + "tenthelpers/gettenthelperdetailsbyemail?email="+email;
+    return this.httpClient.get<ListResponseModel<TentHelper>>(getAllUrl);
+  }
+
+  add(tentHelper: TentHelper): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "tenthelpers/add", tentHelper);
+  }
+
+  delete(tentHelper: TentHelper): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "tenthelpers/delete", tentHelper);
   }
 }

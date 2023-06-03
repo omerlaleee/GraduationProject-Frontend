@@ -19,7 +19,17 @@ export class HouseHelperService {
     return this.httpClient.get<ListResponseModel<HouseHelper>>(getAllUrl);
   }
 
+  getHouseHelpersByEmail(email:string): Observable<ListResponseModel<HouseHelper>> {
+    let getAllUrl = this.apiUrl + "househelpers/gethousehelperdetailsbyemail?email="+email;
+    return this.httpClient.get<ListResponseModel<HouseHelper>>(getAllUrl);
+  }
+
   add(houseHelper: HouseHelper): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "househelpers/add", houseHelper);
   }
+
+  delete(houseHelper: HouseHelper): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "househelpers/delete", houseHelper);
+  }
+
 }
