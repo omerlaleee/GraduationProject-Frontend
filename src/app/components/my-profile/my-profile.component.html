@@ -30,14 +30,13 @@
             <td>{{item.statusInformation}}</td>
             <td>{{item.mapsAddress}}</td>
             <td>{{item.victimType}}</td>
-            <td><button (click)="delete(item)" class="btn btn-warning">Sil</button></td>
+            <td><button (click)="deleteVictim(item)" class="btn btn-warning">Sil</button></td>
         </tr>
     </tbody>
 </table>
 
 
-
-<h2>Yemek Yardımları</h2>
+<h2>Yemek Yardımlarım</h2>
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
@@ -49,6 +48,7 @@
             <th>Yardım Detayı</th>
             <th>Yardım Kapasitesi (Kişi Sayısı)</th>
             <th>Harita Adresi</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -60,6 +60,156 @@
             <td>{{item.phoneNumber}}</td>
             <td>{{item.infoAboutHelp}}</td>
             <td>{{item.numberOfPeople}}</td>
+            <td>{{item.mapsAddress}}</td>
+            <td><button (click)="deleteFoodHelper(item)" class="btn btn-warning">Sil</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Barınma Yardımlarım</h2>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Telefon No</th>
+            <th>Yardım Detayı</th>
+            <th>Yardım Kapasitesi (Kişi Sayısı)</th>
+            <th>Harita Adresi</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of houseHelpers">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.infoAboutHelp}}</td>
+            <td>{{item.numberOfPeople}}</td>
+            <td>{{item.mapsAddress}}</td>
+            <td><button (click)="deleteHouseHelper(item)" class="btn btn-warning">Sil</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Çadır Yardımlarım</h2>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Telefon No</th>
+            <th>Yardım Detayı</th>
+            <th>Yardım Kapasitesi (Kişi Sayısı)</th>
+            <th>Harita Adresi</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of tentHelpers">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.infoAboutHelp}}</td>
+            <td>{{item.numberOfPeople}}</td>
+            <td>{{item.mapsAddress}}</td>
+            <td><button (click)="deleteTentHelper(item)" class="btn btn-warning">Sil</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Seyahat Yardımlarım</h2>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Telefon No</th>
+            <th>Yardım Detayı</th>
+            <th>Kalkış Noktası</th>
+            <th>Varış Noktası</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of transporterHelpers">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.infoAboutHelp}}</td>
+            <td>{{item.addressFrom}}</td>
+            <td>{{item.addressTo}}</td>
+            <td><button (click)="deleteTansporterHelper(item)" class="btn btn-warning">Sil</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>İş Makinesi Kullanma Yardımlarım</h2>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta</th>
+            <th>Telefon No</th>
+            <th>Yardım Detayı</th>
+            <th>Adres</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of operatorHelpers">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.infoAboutHelp}}</td>
+            <td>{{item.address}}</td>
+            <td><button (click)="deleteOperatorHelper(item)" class="btn btn-warning">Sil</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Ev Raporlama Kayıtlarım</h2>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>İsim</th>
+            <th>Soyisim</th>
+            <th>Email</th>
+            <th>Telefon Numarası</th>
+            <th>Adres</th>
+            <th>Detaylı Adres</th>
+            <th>Aciliyet</th>
+            <th>Harita Adresi</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of buildReporters">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.detailedAddress}}</td>
+            <td>{{item.urgency}}</td>
             <td>{{item.mapsAddress}}</td>
         </tr>
     </tbody>

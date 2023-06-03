@@ -29,4 +29,8 @@ export class FoodHelperService {
   add(foodHelper: FoodHelper): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "foodhelpers/add", foodHelper);
   }
+
+  delete(foodHelper: FoodHelper): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "foodhelpers/delete", foodHelper);
+  }
 }

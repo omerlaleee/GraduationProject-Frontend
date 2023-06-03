@@ -19,7 +19,16 @@ export class OperatorHelperService {
     return this.httpClient.get<ListResponseModel<OperatorHelper>>(getAllUrl);
   }
 
+  getOperatorHelpersByEmail(email:string): Observable<ListResponseModel<OperatorHelper>> {
+    let getAllUrl = this.apiUrl + "operatorhelpers/getoperatorhelperdetailsbyemail?email="+email;
+    return this.httpClient.get<ListResponseModel<OperatorHelper>>(getAllUrl);
+  }
+
   add(operatorHelper: OperatorHelper): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "operatorhelpers/add", operatorHelper);
+  }
+
+  delete(operatorHelper: OperatorHelper): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "operatorhelpers/delete", operatorHelper);
   }
 }

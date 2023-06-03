@@ -14,7 +14,7 @@ export class VictimService {
 
   apiUrl = "https://localhost:44314/api/";
 
-  getAllVictims(email:string|any):Observable<ListResponseModel<Victim>>{
+  getAllVictimsByEmail(email:string|any):Observable<ListResponseModel<Victim>>{
     let getAllUrl=this.apiUrl+"victims/getallbyemail?email="+email;
     return this.httpClient.get<ListResponseModel<Victim>>(getAllUrl);
   }
