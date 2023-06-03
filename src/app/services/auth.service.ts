@@ -32,6 +32,7 @@ export class AuthService {
   }
 
   logout() {
+    this.loggedInUser = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false };
     localStorage.removeItem("token");
     localStorage.removeItem("email");
   }

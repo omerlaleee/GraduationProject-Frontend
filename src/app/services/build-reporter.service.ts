@@ -23,4 +23,8 @@ export class BuildReporterService {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "buildreporters/add", buildReporter);
   }
 
+  delete(buildReporter: BuildReporter): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "buildreporters/delete", buildReporter);
+  }
+
 }

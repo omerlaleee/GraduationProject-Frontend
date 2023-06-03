@@ -13,7 +13,7 @@ export class FoodVictimService {
   constructor(private httpClient: HttpClient) { }
 
   apiUrl = "https://localhost:44314/api/";
-  victimType = "Food";
+  victimType = "Yiyecek";
 
   getFoodVictims(): Observable<ListResponseModel<Victim>> {
     let getAllUrl = this.apiUrl + "victims/getbyvictimtype?victimType=" + this.victimType;

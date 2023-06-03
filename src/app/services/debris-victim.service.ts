@@ -14,7 +14,7 @@ export class DebrisVictimService {
   constructor(private httpClient: HttpClient) { }
 
   apiUrl = "https://localhost:44314/api/";
-  victimType = "Debris";
+  victimType = "Enkaz";
 
   getDebrisVictims(): Observable<ListResponseModel<Victim>> {
     let getAllUrl = this.apiUrl + "victims/getbyvictimtype?victimType=" + this.victimType;

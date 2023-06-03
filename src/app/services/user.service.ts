@@ -31,9 +31,9 @@ export class UserService {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "users/add", user);
   }
 
-  // getClaimsOfUser(userId: number | null): Observable<SingleResponseModel<ClaimModel>> {
-  //   let getUserByEmailUrl = this.apiUrl + "users/getbyemail?email=" + email;
-  //   return this.httpClient.get<SingleResponseModel<User>>(getUserByEmailUrl);
-  // }
+  isAdmin(userId: number): Observable<ResponseModel> {
+    let isAdminUrl = this.apiUrl + "users/isadmin?userId=" + userId;
+    return this.httpClient.get<ResponseModel>(isAdminUrl);
+  }
   
 }

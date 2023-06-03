@@ -24,7 +24,7 @@
             <th>Detaylı Adres</th>
             <th>Aciliyet</th>
             <th>Harita Adresi</th>
-            <th></th>
+            <th *ngIf="userIsAdmin">İşlem</th>
         </tr>
     </thead>
     <tbody>
@@ -38,6 +38,7 @@
             <td>{{item.detailedAddress}}</td>
             <td>{{item.urgency}}</td>
             <td>{{item.mapsAddress}}</td>
+            <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>
 </table>
