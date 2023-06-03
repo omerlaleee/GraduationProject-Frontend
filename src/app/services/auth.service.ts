@@ -14,8 +14,6 @@ import { UserService } from './user.service';
 })
 export class AuthService {
 
-
-
   constructor(private httpClient: HttpClient, private userService: UserService) { }
 
   apiUrl = "https://localhost:44314/api/auth/";

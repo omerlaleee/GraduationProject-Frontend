@@ -63,6 +63,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     TentHelperAddComponent,
     OperatorHelperAddComponent,
     TransporterHelperAddComponent,
+    MyProfileComponent,
     PageNotFoundComponent,
     AddressFilterPipe,
     MapsAddressFilterPipe,

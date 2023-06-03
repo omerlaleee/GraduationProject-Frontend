@@ -21,6 +21,11 @@ export class FoodHelperService {
     return this.httpClient.get<ListResponseModel<FoodHelper>>(getAllUrl);
   }
 
+  getFoodHelpersByEmail(email:string): Observable<ListResponseModel<FoodHelper>> {
+    let getAllUrl = this.apiUrl + "foodhelpers/getfoodhelperdetailsbyemail?email="+email;
+    return this.httpClient.get<ListResponseModel<FoodHelper>>(getAllUrl);
+  }
+
   add(foodHelper: FoodHelper): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "foodhelpers/add", foodHelper);
   }
