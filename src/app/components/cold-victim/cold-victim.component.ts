@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Victim } from 'src/app/models/victim';
+import { AuthService } from 'src/app/services/auth.service';
 import { ColdVictimService } from 'src/app/services/cold-victim.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-cold-victim',
@@ -12,10 +14,15 @@ export class ColdVictimComponent implements OnInit {
   victims: Victim[];
   dataLoaded = false;
   filterText = "";
+  userIsAdmin: boolean;
 
-  constructor(private coldVictimService: ColdVictimService, private toastrService: ToastrService) { }
+  constructor(private coldVictimService: ColdVictimService, private toastrService: ToastrService, public authService: AuthService
+    , public userService: UserService) { }
 
   ngOnInit(): void {
+    if (this.authService.loggedInUser != undefined) {
+      this.isAdmin(this.authService.loggedInUser.id);
+    }
     this.getColdVictims();
   }
 
@@ -35,6 +42,12 @@ export class ColdVictimComponent implements OnInit {
       responseError => {
         this.toastrService.error(responseError.message, "Silinemedi!");
       })
+  }
+
+  isAdmin(userId: number) {
+    this.userService.isAdmin(userId).subscribe(response => {
+      this.userIsAdmin = response.success;
+    })
   }
 
 }

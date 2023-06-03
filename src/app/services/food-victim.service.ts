@@ -24,4 +24,8 @@ export class FoodVictimService {
     victim.victimType = this.victimType;
     return this.httpClient.post<ResponseModel>(this.apiUrl + "victims/add", victim);
   }
+
+  delete(victim:Victim):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "victims/delete", victim);
+  }
 }

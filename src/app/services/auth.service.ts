@@ -18,7 +18,7 @@ export class AuthService {
 
   apiUrl = "https://localhost:44314/api/auth/";
   helper = new JwtHelperService();
-  loggedInUser: User;
+  loggedInUser: User = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false };
 
   login(loginModel: LoginModel): Observable<SingleResponseModel<TokenModel>> {
     this.getLoggedInUser(loginModel.email);

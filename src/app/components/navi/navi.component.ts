@@ -24,7 +24,7 @@ export class NaviComponent implements OnInit {
     this.toastrService.info("Hesaptan çıkış yapıldı.");
     this.router.navigate(["/"]);
   }
-
+  
   isAuthenticated() {
     return this.authService.isAuthenticated(window.localStorage.getItem("token"));
   }

@@ -20,7 +20,7 @@ export class TransporterHelperService {
   }
 
   getTransporterHelpersByEmail(email:string): Observable<ListResponseModel<TransporterHelper>> {
-    let getAllUrl = this.apiUrl + "transporterhelpers/gettransporterhelperdetails?email="+email;
+    let getAllUrl = this.apiUrl + "transporterhelpers/gettransporterhelperdetailsbyemail?email="+email;
     return this.httpClient.get<ListResponseModel<TransporterHelper>>(getAllUrl);
   }
 

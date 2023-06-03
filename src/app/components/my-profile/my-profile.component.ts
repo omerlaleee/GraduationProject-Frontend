@@ -25,13 +25,13 @@ import { VictimService } from 'src/app/services/victim.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  victims: Victim[];
-  foodHelpers: FoodHelper[];
-  transporterHelpers: TransporterHelper[];
-  tentHelpers: TentHelper[];
-  houseHelpers: HouseHelper[];
-  operatorHelpers: OperatorHelper[];
-  buildReporters: BuildReporter[];
+  victims: Victim[] = [];
+  foodHelpers: FoodHelper[] = [];
+  transporterHelpers: TransporterHelper[] = [];
+  tentHelpers: TentHelper[] = [];
+  houseHelpers: HouseHelper[] = [];
+  operatorHelpers: OperatorHelper[] = [];
+  buildReporters: BuildReporter[] = [];
   dataLoaded = false;
 
   constructor(private buildReporterService: BuildReporterService,
@@ -52,7 +52,8 @@ export class MyProfileComponent implements OnInit {
     this.getOperatorHelpersByEmail();
   }
   //this.authService.loggedInUser.email
-  email: string | any = window.localStorage.getItem("email")
+  //window.localStorage.getItem("email")
+  email: string | any = this.authService.loggedInUser.email
 
   getAllVictimsByEmail() {
     this.victimService.getAllVictimsByEmail(this.email).subscribe(response => {

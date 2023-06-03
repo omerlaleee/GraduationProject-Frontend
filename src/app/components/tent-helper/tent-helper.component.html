@@ -23,6 +23,7 @@
             <th>Yardım Detayı</th>
             <th>Yardım Kapasitesi (Kişi Sayısı)</th>
             <th>Harita Adresi</th>
+            <th *ngIf="userIsAdmin">İşlem</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@
             <td>{{item.infoAboutHelp}}</td>
             <td>{{item.numberOfPeople}}</td>
             <td>{{item.mapsAddress}}</td>
+            <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>
 </table>

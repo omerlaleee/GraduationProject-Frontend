@@ -4,21 +4,21 @@
 </div>
 
 <div *ngIf="dataLoaded==true" class="mb-3">
-    <label for="filterText" class="form-label">Kalkış Adresine Göre Filtrele : </label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+    <label for="filterTextFrom" class="form-label">Kalkış Adresine Göre Filtrele : </label>
+    <input type="text" [(ngModel)]="filterTextFrom" class="form-control" id="filterTextFrom"
         placeholder="Arama İfadesi Giriniz">
 </div>
-<div *ngIf="filterText" class="alert alert-success">
-    {{filterText}} Aradınız.
+<div *ngIf="filterTextFrom" class="alert alert-success">
+    {{filterTextFrom}} Aradınız.
 </div>
 
 <div *ngIf="dataLoaded==true" class="mb-3">
-    <label for="filterText2" class="form-label">Varış Adresine Göre Filtrele : </label>
-    <input type="text" [(ngModel)]="filterText2" class="form-control" id="filterText2"
+    <label for="filterTextTo" class="form-label">Varış Adresine Göre Filtrele : </label>
+    <input type="text" [(ngModel)]="filterTextTo" class="form-control" id="filterTextTo"
         placeholder="Arama İfadesi Giriniz">
 </div>
-<div *ngIf="filterText2" class="alert alert-success">
-    {{filterText2}} Aradınız.
+<div *ngIf="filterTextTo" class="alert alert-success">
+    {{filterTextTo}} Aradınız.
 </div>
 
 <table *ngIf="dataLoaded==true" class="table">
@@ -32,10 +32,11 @@
             <th>Yardım Detayı</th>
             <th>Kalkış Noktası</th>
             <th>Varış Noktası</th>
+            <th *ngIf="userIsAdmin">İşlem</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of transporterHelpers | addressFromFilter:filterText | addressToFilter:filterText2">
+        <tr *ngFor="let item of transporterHelpers | addressFromFilter:filterTextFrom | addressToFilter:filterTextTo">
             <td>{{item.id}}</td>
             <td>{{item.firstName}}</td>
             <td>{{item.lastName}}</td>
@@ -44,6 +45,7 @@
             <td>{{item.infoAboutHelp}}</td>
             <td>{{item.addressFrom}}</td>
             <td>{{item.addressTo}}</td>
+            <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>
 </table>
