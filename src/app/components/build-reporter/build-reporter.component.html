@@ -36,7 +36,7 @@
             <td>{{item.address}}</td>
             <td>{{item.detailedAddress}}</td>
             <td>{{item.urgency}}</td>
-            <td><button class="btn btn-fill btn-primary" routerLink="/buildreporters/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
+            <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
             <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>

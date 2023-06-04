@@ -37,7 +37,7 @@ export class DebrisVictimComponent implements OnInit {
   delete(debrisVictim: Victim) {
     this.debrisVictimService.delete(debrisVictim).subscribe(
       response => {
-        this.toastrService.success(response.message, "Enkaz Raporu Silindi!");
+        this.toastrService.success("Enkaz Raporu Silindi!");
         this.getDebrisVictims();
       },
       responseError => {

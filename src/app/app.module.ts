@@ -85,7 +85,7 @@ import { MapsDetailComponent } from './components/maps-detail/maps-detail.compon
       positionClass: "toast-bottom-right"
     }),
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyA6R9qXbZHcHJu0lHraipWorWMuzhF5vGA'
     }),
     NgbModule,
     FormsModule

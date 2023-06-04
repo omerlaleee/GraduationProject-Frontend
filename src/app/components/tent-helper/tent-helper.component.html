@@ -15,7 +15,6 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Adı</th>
             <th>Soyadı</th>
             <th>E-posta</th>
@@ -24,18 +23,18 @@
             <th>Yardım Kapasitesi (Kişi Sayısı)</th>
             <th>Harita Adresi</th>
             <th *ngIf="userIsAdmin">İşlem</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of tentHelpers | mapsAddressFilter:filterText">
-            <td>{{item.id}}</td>
             <td>{{item.firstName}}</td>
             <td>{{item.lastName}}</td>
             <td>{{item.email}}</td>
             <td>{{item.phoneNumber}}</td>
             <td>{{item.infoAboutHelp}}</td>
             <td>{{item.numberOfPeople}}</td>
-            <td>{{item.mapsAddress}}</td>
+            <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
             <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>

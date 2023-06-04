@@ -158,10 +158,10 @@
         </div>
         <div>
             <h2>Harita</h2>
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"
-                [disableDoubleClickZoom]="true" (mapClick)="mapClick($event)" (mapDblClick)="mapDoubleClick($event)">
-                <agm-marker [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true"
-                    [title]="'Konum'" [label]="'A'" (markerClick)="markerClick($event)"></agm-marker>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDoubleClickZoom]="true"
+                (mapClick)="mapClick($event)" (mapDblClick)="mapDoubleClick($event)">
+                <agm-marker [latitude]="location.lat" [longitude]="location.lng" [title]="'Konum'" [label]="'A'"
+                    (markerClick)="markerClick($event)"></agm-marker>
             </agm-map>
         </div>
 

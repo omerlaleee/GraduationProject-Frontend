@@ -14,8 +14,8 @@
                 <th>Detaylı Adres</th>
                 <th>Aciliyet</th>
                 <th>Durum Bilgisi</th>
-                <th>Harita Adresi</th>
                 <th>Yardım Türü</th>
+                <th>Harita Adresi</th>
                 <th>İşlem</th>
             </tr>
         </thead>
@@ -31,8 +31,8 @@
                 <td>{{item.detailedAddress}}</td>
                 <td>{{item.urgency}}</td>
                 <td>{{item.statusInformation}}</td>
-                <td>{{item.mapsAddress}}</td>
                 <td>{{item.victimType}}</td>
+                <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
                 <td><button (click)="deleteVictim(item)" class="btn btn-warning">Sil</button></td>
             </tr>
         </tbody>

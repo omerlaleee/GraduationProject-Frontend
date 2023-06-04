@@ -36,7 +36,7 @@ export class FoodVictimComponent implements OnInit {
   delete(foodVictim: Victim) {
     this.foodVictimService.delete(foodVictim).subscribe(
       response => {
-        this.toastrService.success(response.message, "Yemek İhtiyacı Girişi Silindi!");
+        this.toastrService.success("Gıda İhtiyacı Girişi Silindi!");
         this.getFoodVictims();
       },
       responseError => {

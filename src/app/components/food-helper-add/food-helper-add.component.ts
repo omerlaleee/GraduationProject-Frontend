@@ -44,8 +44,7 @@ export class FoodHelperAddComponent implements OnInit {
   createFoodHelperAddForm() {
     this.foodHelperAddForm = this.formBuilder.group({
       infoAboutHelp: ["", Validators.required],
-      numberOfPeople: ["", Validators.required],
-      mapsAddress: ["", Validators.required]
+      numberOfPeople: ["", Validators.required]
     })
   }
 

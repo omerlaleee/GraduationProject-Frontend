@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-maps-detail',
@@ -13,7 +14,7 @@ export class MapsDetailComponent implements OnInit {
     lat: 37.57640781215303, lng: 36.9267962872982
   };
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -23,18 +24,9 @@ export class MapsDetailComponent implements OnInit {
     })
   }
 
-  mapClick(event: any) {
-    //console.log(event);
-    this.location = event.coords;
-    console.log(this.location);
-  }
-
-  mapDoubleClick(event: any) {
-    //console.log(event);
-  }
-
   markerClick(event: any) {
-    //console.log(event);
+    this.toastrService.info("Enlem : " + event.latitude + "\nBoylam : " + event.longitude)
+    console.log(event);
   }
 
 }

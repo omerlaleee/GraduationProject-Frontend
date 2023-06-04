@@ -36,7 +36,7 @@ export class ColdVictimComponent implements OnInit {
   delete(coldVictim: Victim) {
     this.coldVictimService.delete(coldVictim).subscribe(
       response => {
-        this.toastrService.success(response.message, "Isınma Raporu Silindi!");
+        this.toastrService.success("Isınma Raporu Silindi!");
         this.getColdVictims();
       },
       responseError => {

@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "myprofile", component: MyProfileComponent, canActivate: [LoginGuard] },
-  { path: "buildreporters/mapsDetail/:mapsAddress", component: MapsDetailComponent },
+  { path: "mapsDetail/:mapsAddress", component: MapsDetailComponent },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "debrisvictim/add", component: DebrisVictimAddComponent },

@@ -37,7 +37,7 @@ export class TransporterHelperComponent {
   delete(transporterHelper: TransporterHelper) {
     this.transporterHelperService.delete(transporterHelper).subscribe(
       response => {
-        this.toastrService.success(response.message, "Bina Raporu Silindi!");
+        this.toastrService.success("Seyahat Yardımı Girişi Silindi!");
         this.getTransporterHelpers();
       },
       responseError => {

@@ -36,7 +36,7 @@ export class HouseHelperComponent {
   delete(houseHelper: HouseHelper) {
     this.houseHelperService.delete(houseHelper).subscribe(
       response => {
-        this.toastrService.success(response.message, "Ev Yardımı Girişi Silindi!");
+        this.toastrService.success(response.message, "Barınma Yardımı Girişi Silindi!");
         this.getHouseHelpers();
       },
       responseError => {

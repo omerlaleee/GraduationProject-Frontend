@@ -36,7 +36,7 @@ export class OperatorHelperComponent implements OnInit {
   delete(operatorHelper: OperatorHelper) {
     this.operatorHelperService.delete(operatorHelper).subscribe(
       response => {
-        this.toastrService.success(response.message, "İş Makinesi Yardımı Girişi Silindi!");
+        this.toastrService.success(response.message, "İş Makinesi Yardımı Silindi!");
         this.getOperatorHelpers();
       },
       responseError => {

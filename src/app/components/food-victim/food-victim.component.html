@@ -1,4 +1,4 @@
-<b>Yiyeceğe İhtiyacı Olanlar</b>
+<b>Gıdaya İhtiyacı Olanlar</b>
 <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
@@ -41,7 +41,7 @@
             <td>{{item.detailedAddress}}</td>
             <td>{{item.urgency}}</td>
             <td>{{item.statusInformation}}</td>
-            <td><button class="btn btn-fill btn-primary" routerLink="/buildreporters/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
+            <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
             <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>

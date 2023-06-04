@@ -35,13 +35,13 @@ export class LoginComponent implements OnInit {
         window.localStorage.setItem("email", loginModel.email);
         console.log("Token → " + response.data.token);
         console.log("Expiration Date of Token → " + response.data.expiration);
-        this.toastrService.success(response.message, "Giriş Başarılı");
+        this.toastrService.success("Giriş Başarılı");
         //console.log(this.router.url)
         this.router.navigate(["/"]);
       }
         , responseError => {
-          //console.log(responseError);
-          this.toastrService.error(responseError.error.message, "Giriş Başarısız");
+          console.log(responseError);
+          this.toastrService.error("E-posta veya Şifreniz Hatalı!");
         })
     }
     else {

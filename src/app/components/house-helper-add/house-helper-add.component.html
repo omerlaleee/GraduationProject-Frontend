@@ -44,7 +44,7 @@
 <body class="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white vsc-initialized">
     <div class="mx-auto max-w-screen-lg px-6">
         <div class="mx-auto max-w-screen-sm">
-            <h1 class="mb-5">Çadır Yardımı Sağlayabilirim!</h1>
+            <h1 class="mb-5">Barınma Yardımı Sağlayabilirim!</h1>
             <form [formGroup]="houseHelperAddForm">
                 <div class="grid gap-4 sm:grid-cols-2">
 
@@ -121,7 +121,7 @@
             <h2>Harita</h2>
             <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDoubleClickZoom]="true"
                 (mapClick)="mapClick($event)" (mapDblClick)="mapDoubleClick($event)">
-                <agm-marker [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true"
+                <agm-marker [latitude]="location.lat" [longitude]="location.lng" 
                     [title]="'Konum'" [label]="'A'" (markerClick)="markerClick($event)"></agm-marker>
             </agm-map>
         </div>
