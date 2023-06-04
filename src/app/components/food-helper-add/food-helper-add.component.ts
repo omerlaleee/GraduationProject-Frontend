@@ -13,6 +13,26 @@ import { FoodHelperService } from 'src/app/services/food-helper.service';
 export class FoodHelperAddComponent implements OnInit {
 
   foodHelperAddForm: FormGroup;
+  lat = 37.57640781215303;
+  lng = 36.9267962872982;
+  zoom: number = 13;
+  location = {
+    lat: 37.57640781215303, lng: 36.9267962872982
+  };
+
+  mapClick(event: any) {
+    //console.log(event);
+    this.location = event.coords;
+    console.log(this.location);
+  }
+
+  mapDoubleClick(event: any) {
+    //console.log(event);
+  }
+
+  markerClick(event: any) {
+    //console.log(event);
+  }
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private foodHelperService: FoodHelperService
     , private toastrService: ToastrService, public router: Router) { }
@@ -34,6 +54,7 @@ export class FoodHelperAddComponent implements OnInit {
       let foodHelperModel = Object.assign({}, this.foodHelperAddForm.value);
       foodHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(foodHelperModel);
+      foodHelperModel.mapsAddress = this.location.lat + "-" + this.location.lng;
       this.foodHelperService.add(foodHelperModel).subscribe(
         response => {
           // console.log(response.message);

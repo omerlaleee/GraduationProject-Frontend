@@ -14,6 +14,26 @@ import { HouseHelperService } from 'src/app/services/house-helper.service';
 export class HouseHelperAddComponent implements OnInit {
 
   houseHelperAddForm: FormGroup;
+  lat = 37.57640781215303;
+  lng = 36.9267962872982;
+  zoom: number = 13;
+  location = {
+    lat: 37.57640781215303, lng: 36.9267962872982
+  };
+
+  mapClick(event: any) {
+    //console.log(event);
+    this.location = event.coords;
+    console.log(this.location);
+  }
+
+  mapDoubleClick(event: any) {
+    //console.log(event);
+  }
+
+  markerClick(event: any) {
+    //console.log(event);
+  }
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private houseHelperService: HouseHelperService
     , private toastrService: ToastrService, public router: Router) { }
@@ -25,8 +45,7 @@ export class HouseHelperAddComponent implements OnInit {
   createHouseHelperAddForm() {
     this.houseHelperAddForm = this.formBuilder.group({
       infoAboutHelp: ["", Validators.required],
-      numberOfPeople: ["", Validators.required],
-      mapsAddress: ["", Validators.required]
+      numberOfPeople: ["", Validators.required]
     })
   }
 
@@ -35,6 +54,8 @@ export class HouseHelperAddComponent implements OnInit {
       let houseHelperModel = Object.assign({}, this.houseHelperAddForm.value);
       houseHelperModel.userId = this.authService.loggedInUser.id;
       //console.log(houseHelperModel);
+      houseHelperModel.mapsAddress = this.location.lat + "-" + this.location.lng;
+
       this.houseHelperService.add(houseHelperModel).subscribe(
         response => {
           // console.log(response.message);

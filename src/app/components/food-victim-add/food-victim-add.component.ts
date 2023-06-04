@@ -11,7 +11,26 @@ import { FoodVictimService } from 'src/app/services/food-victim.service';
 })
 export class FoodVictimAddComponent {
   foodVictimAddForm: FormGroup;
- 
+  lat = 37.57640781215303;
+  lng = 36.9267962872982;
+  zoom: number = 13;
+  location = {
+    lat: 37.57640781215303, lng: 36.9267962872982
+  };
+
+  mapClick(event: any) {
+    //console.log(event);
+    this.location = event.coords;
+    console.log(this.location);
+  }
+
+  mapDoubleClick(event: any) {
+    //console.log(event);
+  }
+
+  markerClick(event: any) {
+    //console.log(event);
+  }
   constructor(public router: Router, private formBuilder: FormBuilder, private debrisVictimService: FoodVictimService, private toastrService: ToastrService) { }
  
   ngOnInit(): void {
@@ -29,7 +48,6 @@ export class FoodVictimAddComponent {
       detailedAddress: ["", Validators.required],
       urgency: ["", Validators.required],
       statusInformation: ["", Validators.required],
-      mapsAddress: ["", Validators.required]
     })
   }
 
@@ -37,6 +55,8 @@ export class FoodVictimAddComponent {
     if (this.foodVictimAddForm.valid) {
       let foodVictimModel = Object.assign({}, this.foodVictimAddForm.value);
       //console.log(coldVictimModel);
+      foodVictimModel.mapsAddress = this.location.lat + "-" + this.location.lng;
+
       this.debrisVictimService.add(foodVictimModel).subscribe(
         response => {
           // console.log(response.message);

@@ -50,7 +50,8 @@
 
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="detailedAddress">Yardım Hakkında Bilgi</label></div>
+                            <div><label class="text-sm font-semibold" for="detailedAddress">Yardım Hakkında
+                                    Bilgi</label></div>
                             <div class="relative">
                                 <span
                                     class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -72,7 +73,8 @@
 
                     <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="numberOfPeople">Yardım Edilecek Kişi Sayısı</label></div>
+                            <div><label class="text-sm font-semibold" for="numberOfPeople">Yardım Edilecek Kişi
+                                    Sayısı</label></div>
                             <div class="relative">
                                 <span
                                     class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
@@ -91,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="sm:col-span-2">
+                    <!-- <div class="sm:col-span-2">
                         <div class="flex flex-col gap-2">
                             <div><label class="text-sm font-semibold" for="mapsAddress">Harita Adresi</label></div>
                             <div class="relative">
@@ -111,14 +113,23 @@
                                     id="mapsAddress" aria-label="İsim" value="" formControlName="mapsAddress">
                             </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
-                    </div>
+                    </div> -->
                 </div>
             </form>
         </div>
+        <div>
+            <h2>Harita</h2>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDoubleClickZoom]="true"
+                (mapClick)="mapClick($event)" (mapDblClick)="mapDoubleClick($event)">
+                <agm-marker [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true"
+                    [title]="'Konum'" [label]="'A'" (markerClick)="markerClick($event)"></agm-marker>
+            </agm-map>
+        </div>
+
+        <div>
+            <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+        </div>
     </div>
 </body>
+
 </html>

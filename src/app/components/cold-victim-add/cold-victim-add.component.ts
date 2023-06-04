@@ -11,7 +11,27 @@ import { ColdVictimService } from 'src/app/services/cold-victim.service';
 })
 export class ColdVictimAddComponent implements OnInit {
   coldVictimAddForm: FormGroup;
- 
+  buildReporterAddForm: FormGroup;
+  lat = 37.57640781215303;
+  lng = 36.9267962872982;
+  zoom: number = 13;
+  location = {
+    lat: 37.57640781215303, lng: 36.9267962872982
+  };
+
+  mapClick(event: any) {
+    //console.log(event);
+    this.location = event.coords;
+    console.log(this.location);
+  }
+
+  mapDoubleClick(event: any) {
+    //console.log(event);
+  }
+
+  markerClick(event: any) {
+    //console.log(event);
+  }
   constructor(public router: Router, private formBuilder: FormBuilder, private coldVictimService: ColdVictimService, private toastrService: ToastrService) { }
  
   ngOnInit(): void {
@@ -28,8 +48,7 @@ export class ColdVictimAddComponent implements OnInit {
       address: ["", Validators.required],
       detailedAddress: ["", Validators.required],
       urgency: ["", Validators.required],
-      statusInformation: ["", Validators.required],
-      mapsAddress: ["", Validators.required]
+      statusInformation: ["", Validators.required]
     })
   }
 
@@ -37,6 +56,7 @@ export class ColdVictimAddComponent implements OnInit {
     if (this.coldVictimAddForm.valid) {
       let coldVictimModel = Object.assign({}, this.coldVictimAddForm.value);
       //console.log(coldVictimModel);
+      coldVictimModel.mapsAddress = this.location.lat + "-" + this.location.lng;
       this.coldVictimService.add(coldVictimModel).subscribe(
         response => {
           // console.log(response.message);

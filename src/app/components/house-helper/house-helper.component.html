@@ -35,7 +35,7 @@
             <td>{{item.phoneNumber}}</td>
             <td>{{item.infoAboutHelp}}</td>
             <td>{{item.numberOfPeople}}</td>
-            <td>{{item.mapsAddress}}</td>
+            <td><button class="btn btn-fill btn-primary" routerLink="/buildreporters/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
             <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
         </tr>
     </tbody>
