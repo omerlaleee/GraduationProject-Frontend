@@ -25,6 +25,7 @@
             <th>Aciliyet</th>
             <th>Harita Adresi</th>
             <th *ngIf="userIsAdmin">İşlem</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
             <td>{{item.urgency}}</td>
             <td>{{item.mapsAddress}}</td>
             <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
+            <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail">Haritada Göster</button></td>
         </tr>
     </tbody>
 </table>

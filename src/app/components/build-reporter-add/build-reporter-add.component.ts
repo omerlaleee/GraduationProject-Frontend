@@ -13,6 +13,26 @@ import { AuthService } from 'src/app/services/auth.service';
 export class BuildReporterAddComponent implements OnInit {
 
   buildReporterAddForm: FormGroup;
+  lat = 37.57640781215303;
+  lng = 36.9267962872982;
+  zoom: number = 13;
+  location = {
+    lat: 37.57640781215303, lng: 36.9267962872982
+  };
+
+  mapClick(event: any) {
+    //console.log(event);
+    this.location = event.coords;
+    console.log(this.location);
+  }
+
+  mapDoubleClick(event: any) {
+    //console.log(event);
+  }
+
+  markerClick(event: any) {
+    //console.log(event);
+  }
 
   constructor(private authService: AuthService, public router: Router, private formBuilder: FormBuilder, private buildReporterService: BuildReporterService, private toastrService: ToastrService) { }
 
@@ -24,8 +44,7 @@ export class BuildReporterAddComponent implements OnInit {
     this.buildReporterAddForm = this.formBuilder.group({
       address: ["", Validators.required],
       detailedAddress: ["", Validators.required],
-      urgency: ["", Validators.required],
-      mapsAddress: ["", Validators.required]
+      urgency: ["", Validators.required]
     })
   }
 
@@ -33,6 +52,10 @@ export class BuildReporterAddComponent implements OnInit {
     if (this.buildReporterAddForm.valid) {
       let buildReporterModel = Object.assign({}, this.buildReporterAddForm.value);
       buildReporterModel.userId = this.authService.loggedInUser.id;
+      console.log(this.location);
+      buildReporterModel.mapsAddress = this.location.lat + "/" + this.location.lng;
+
+      console.log(buildReporterModel);
       //console.log(buildReporterModel);
       this.buildReporterService.add(buildReporterModel).subscribe(
         response => {
@@ -47,7 +70,8 @@ export class BuildReporterAddComponent implements OnInit {
             }
           }
           else {
-            this.toastrService.error("Sisteme Giriş Yapmalısınız!", "Yetki Hatası");
+            console.log(responseError.error);
+            this.toastrService.error(responseError.error, "Yetki Hatası");
             this.router.navigateByUrl('/login');
           }
         });

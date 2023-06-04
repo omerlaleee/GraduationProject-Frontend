@@ -38,6 +38,8 @@ import { AddressFromFilterPipe } from './pipes/address-from-filter.pipe';
 import { AddressToFilterPipe } from './pipes/address-to-filter.pipe';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +81,9 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-right"
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: ''
     }),
     NgbModule,
     FormsModule
