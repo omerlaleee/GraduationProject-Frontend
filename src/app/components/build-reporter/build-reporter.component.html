@@ -15,7 +15,6 @@
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th>İsim</th>
             <th>Soyisim</th>
             <th>Email</th>
@@ -30,7 +29,6 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of buildReporters | addressFilter:filterText">
-            <td>{{item.id}}</td>
             <td>{{item.firstName}}</td>
             <td>{{item.lastName}}</td>
             <td>{{item.email}}</td>
@@ -38,9 +36,8 @@
             <td>{{item.address}}</td>
             <td>{{item.detailedAddress}}</td>
             <td>{{item.urgency}}</td>
-            <td>{{item.mapsAddress}}</td>
+            <td><button class="btn btn-fill btn-primary" routerLink="/buildreporters/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
             <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
-            <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail">Haritada Göster</button></td>
         </tr>
     </tbody>
 </table>

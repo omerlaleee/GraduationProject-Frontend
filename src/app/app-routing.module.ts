@@ -25,12 +25,14 @@ import { TransporterHelperAddComponent } from './components/transporter-helper-a
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { NaviComponent } from './components/navi/navi.component';
+import { MapsDetailComponent } from './components/maps-detail/maps-detail.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "myprofile", component: MyProfileComponent, canActivate: [LoginGuard] },
+  { path: "buildreporters/mapsDetail/:mapsAddress", component: MapsDetailComponent },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "debrisvictim/add", component: DebrisVictimAddComponent },

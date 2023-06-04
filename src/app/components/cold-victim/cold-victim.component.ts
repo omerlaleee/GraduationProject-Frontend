@@ -20,7 +20,7 @@ export class ColdVictimComponent implements OnInit {
     , public userService: UserService) { }
 
   ngOnInit(): void {
-    if (this.authService.loggedInUser != undefined) {
+    if (this.authService.loggedInUser != undefined && this.authService.loggedInUser.id != 0) {
       this.isAdmin(this.authService.loggedInUser.id);
     }
     this.getColdVictims();

@@ -39,6 +39,7 @@ import { AddressToFilterPipe } from './pipes/address-to-filter.pipe';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { MapsDetailComponent } from './components/maps-detail/maps-detail.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { AgmCoreModule } from '@agm/core';
     AddressFilterPipe,
     MapsAddressFilterPipe,
     AddressFromFilterPipe,
-    AddressToFilterPipe
+    AddressToFilterPipe,
+    MapsDetailComponent
   ],
   imports: [
     BrowserModule,

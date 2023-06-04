@@ -52,10 +52,10 @@ export class BuildReporterAddComponent implements OnInit {
     if (this.buildReporterAddForm.valid) {
       let buildReporterModel = Object.assign({}, this.buildReporterAddForm.value);
       buildReporterModel.userId = this.authService.loggedInUser.id;
-      console.log(this.location);
-      buildReporterModel.mapsAddress = this.location.lat + "/" + this.location.lng;
+      //console.log(this.location);
+      buildReporterModel.mapsAddress = this.location.lat + "-" + this.location.lng;
 
-      console.log(buildReporterModel);
+      //console.log(buildReporterModel);
       //console.log(buildReporterModel);
       this.buildReporterService.add(buildReporterModel).subscribe(
         response => {
