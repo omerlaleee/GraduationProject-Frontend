@@ -2,6 +2,9 @@
     /*
 ! tailwindcss v3.2.6 | MIT License | https://tailwindcss.com
 */
+agm-map {
+  height: 600px;
+}
 *,
 :after,
 :before {

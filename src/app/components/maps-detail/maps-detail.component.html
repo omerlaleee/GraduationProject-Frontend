@@ -1,14 +1,7 @@
 <div class="container">
     <h2>Harita</h2>
-    <agm-map 
-    [latitude]="location.lat" 
-    [longitude]="location.lng" 
-    [zoom]="zoom" 
-    [disableDoubleClickZoom]="true"
-    (mapClick)="mapClick($event)" 
-    (mapDblClick)="mapDoubleClick($event)"
-    >
-        <agm-marker [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true" [title]="'Konum'" [label]="'A'"
-        (markerClick)="markerClick($event)"></agm-marker>
+    <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="zoom" [disableDoubleClickZoom]="true">
+        <agm-marker [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true" [title]="'Konum'"
+            [label]="'A'" (markerClick)="markerClick($event)"></agm-marker>
     </agm-map>
 </div>
