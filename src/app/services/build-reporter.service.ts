@@ -19,8 +19,8 @@ export class BuildReporterService {
     return this.httpClient.get<ListResponseModel<BuildReporter>>(getAllUrl);
   }
 
-  getBuildReportersByEmail(email:string): Observable<ListResponseModel<BuildReporter>> {
-    let getAllUrl = this.apiUrl + "buildreporters/getbuildreporterdetailsbyemail?email"+email;
+  getBuildReportersByEmail(email: string | any): Observable<ListResponseModel<BuildReporter>> {
+    let getAllUrl = this.apiUrl + "BuildReporters/getbuildreporterdetailsbyemail?email=" + email;
     return this.httpClient.get<ListResponseModel<BuildReporter>>(getAllUrl);
   }
 

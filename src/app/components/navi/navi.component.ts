@@ -16,7 +16,7 @@ export class NaviComponent implements OnInit {
   constructor(private toastrService: ToastrService, public authService: AuthService, private router: Router, public userService: UserService) { }
 
   ngOnInit(): void {
-
+    this.authService.getLoggedInUser(window.localStorage.getItem("email"));
   }
 
   logout() {

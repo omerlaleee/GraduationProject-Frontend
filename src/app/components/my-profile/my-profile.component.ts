@@ -45,6 +45,7 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllVictimsByEmail();
+    this.getBuildReportersByEmail();
     this.getFoodHelpersByEmail();
     this.getHouseHelpersByEmail();
     this.getTentHelpersByEmail();
@@ -172,11 +173,11 @@ export class MyProfileComponent implements OnInit {
       })
   }
 
-  deleteBuildReporters(buildReporters: BuildReporter) {
-    this.buildReporterService.delete(buildReporters).subscribe(
+  deleteBuildReporters(buildReporter: BuildReporter) {
+    this.buildReporterService.delete(buildReporter).subscribe(
       response => {
         this.toastrService.success(response.message, "Başarılı");
-        this.getOperatorHelpersByEmail();
+        this.getBuildReportersByEmail();
       },
       responseError => {
         this.toastrService.error(responseError.message, "Silinemedi");

@@ -10,16 +10,16 @@ import { ResponseModel } from '../models/responseModel';
 })
 export class VictimService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   apiUrl = "https://localhost:44314/api/";
 
-  getAllVictimsByEmail(email:string|any):Observable<ListResponseModel<Victim>>{
-    let getAllUrl=this.apiUrl+"victims/getallbyemail?email="+email;
+  getAllVictimsByEmail(email: string | any): Observable<ListResponseModel<Victim>> {
+    let getAllUrl = this.apiUrl + "victims/getallbyemail?email=" + email;
     return this.httpClient.get<ListResponseModel<Victim>>(getAllUrl);
   }
 
-  delete(victim:Victim):Observable<ResponseModel>{
+  delete(victim: Victim): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "victims/delete", victim);
   }
 }

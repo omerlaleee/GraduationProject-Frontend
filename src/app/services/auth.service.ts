@@ -25,9 +25,10 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "login", loginModel);
   }
 
-  getLoggedInUser(email: string) {
+  getLoggedInUser(email: string | null) {
     this.userService.getUserByEmail(email).subscribe(response => {
       this.loggedInUser = response.data;
+      //console.log(this.loggedInUser);
     });
   }
 

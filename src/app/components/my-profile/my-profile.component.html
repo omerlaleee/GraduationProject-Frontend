@@ -39,6 +39,38 @@
     </table>
 </div>
 
+<div *ngIf="dataLoaded==true && buildReporters.length!=0">
+    <h2>Ev Raporlarım</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>E-posta</th>
+                <th>Telefon No</th>
+                <th>Adres</th>
+                <th>Detaylı Adres</th>
+                <th>Aciliyet</th>
+                <th>Harita Adresi</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of buildReporters">
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.phoneNumber}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.detailedAddress}}</td>
+                <td>{{item.urgency}}</td>
+                <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
+                <td><button (click)="deleteBuildReporters(item)" class="btn btn-warning">Sil</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 
 <div *ngIf="dataLoaded==true && foodHelpers.length!=0">
     <h2>Yemek Yardımlarım</h2>
@@ -194,40 +226,6 @@
                 <td>{{item.infoAboutHelp}}</td>
                 <td>{{item.address}}</td>
                 <td><button (click)="deleteOperatorHelper(item)" class="btn btn-warning">Sil</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-
-<div *ngIf="dataLoaded==true && buildReporters.length!=0">
-    <h2>Ev Raporlama Kayıtlarım</h2>
-    <table *ngIf="dataLoaded==true" class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>İsim</th>
-                <th>Soyisim</th>
-                <th>Email</th>
-                <th>Telefon Numarası</th>
-                <th>Adres</th>
-                <th>Detaylı Adres</th>
-                <th>Aciliyet</th>
-                <th>Harita Adresi</th>
-                <th>İşlem</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of buildReporters">
-                <td>{{item.id}}</td>
-                <td>{{item.firstName}}</td>
-                <td>{{item.lastName}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.phoneNumber}}</td>
-                <td>{{item.address}}</td>
-                <td>{{item.detailedAddress}}</td>
-                <td>{{item.urgency}}</td>
-                <td>{{item.mapsAddress}}</td>
             </tr>
         </tbody>
     </table>
