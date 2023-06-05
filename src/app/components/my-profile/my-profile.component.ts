@@ -43,7 +43,14 @@ export class MyProfileComponent implements OnInit {
     private victimService: VictimService,
     public authService: AuthService, private toastrService: ToastrService) { }
 
+  //this.authService.loggedInUser.email
+  //window.localStorage.getItem("email")
+  email: string | any = window.localStorage.getItem("email")
+
   ngOnInit(): void {
+    if (this.email != null) {
+      this.authService.getLoggedInUser(this.email);
+    }
     this.getAllVictimsByEmail();
     this.getBuildReportersByEmail();
     this.getFoodHelpersByEmail();
@@ -52,9 +59,6 @@ export class MyProfileComponent implements OnInit {
     this.getTransporterHelpersByEmail();
     this.getOperatorHelpersByEmail();
   }
-  //this.authService.loggedInUser.email
-  //window.localStorage.getItem("email")
-  email: string | any = this.authService.loggedInUser.email
 
   getAllVictimsByEmail() {
     this.victimService.getAllVictimsByEmail(this.email).subscribe(response => {
