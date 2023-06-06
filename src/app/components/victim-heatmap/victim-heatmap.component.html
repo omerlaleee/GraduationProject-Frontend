@@ -1,0 +1,8 @@
+<div *ngIf="dataLoad" class="container">
+    <h2>Harita</h2>
+    <agm-map [latitude]="location.lat" [longitude]="location.lng" [zoom]="zoom" [disableDoubleClickZoom]="true"
+        (mapReady)="onMapLoad($event)">
+        <agm-marker *ngFor="let item of points" [latitude]="item.lat" [longitude]="item.lng" [title]="item.message"
+            [label]="item.count" (markerClick)="markerClick($event)"></agm-marker>
+    </agm-map>
+</div>

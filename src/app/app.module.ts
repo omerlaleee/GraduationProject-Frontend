@@ -40,6 +40,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 
 import { AgmCoreModule } from '@agm/core';
 import { MapsDetailComponent } from './components/maps-detail/maps-detail.component';
+import { VictimHeatmapComponent } from './components/victim-heatmap/victim-heatmap.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { MapsDetailComponent } from './components/maps-detail/maps-detail.compon
     MapsAddressFilterPipe,
     AddressFromFilterPipe,
     AddressToFilterPipe,
-    MapsDetailComponent
+    MapsDetailComponent,
+    VictimHeatmapComponent
   ],
   imports: [
     BrowserModule,
