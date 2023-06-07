@@ -8,4 +8,5 @@ export interface HouseHelper{
     infoAboutHelp: string;
     numberOfPeople: number;
     mapsAddress: string;
+    type: string;
 }

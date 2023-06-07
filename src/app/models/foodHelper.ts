@@ -8,4 +8,5 @@ export interface FoodHelper {
     infoAboutHelp: string;
     numberOfPeople: number;
     mapsAddress: string;
+    type: string;
 }

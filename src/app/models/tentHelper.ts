@@ -8,4 +8,5 @@ export interface TentHelper{
     infoAboutHelp: string;
     numberOfPeople: number;
     mapsAddress: string;
+    type: string;
 }

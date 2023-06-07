@@ -41,6 +41,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { AgmCoreModule } from '@agm/core';
 import { MapsDetailComponent } from './components/maps-detail/maps-detail.component';
 import { VictimHeatmapComponent } from './components/victim-heatmap/victim-heatmap.component';
+import { HelperHeatmapComponent } from './components/helper-heatmap/helper-heatmap.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { VictimHeatmapComponent } from './components/victim-heatmap/victim-heatm
     AddressFromFilterPipe,
     AddressToFilterPipe,
     MapsDetailComponent,
-    VictimHeatmapComponent
+    VictimHeatmapComponent,
+    HelperHeatmapComponent
   ],
   imports: [
     BrowserModule,
