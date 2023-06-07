@@ -1,51 +1,61 @@
-<b>Seyahat Yardımı Sağlayabilenler</b>
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
+<div class="paddingRule">
+    <b>Seyahat Yardımı Sağlayabilenler</b>
+    <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 
-<div *ngIf="dataLoaded==true" class="mb-3">
-    <label for="filterTextFrom" class="form-label">Kalkış Adresine Göre Filtrele : </label>
-    <input type="text" [(ngModel)]="filterTextFrom" class="form-control" id="filterTextFrom"
-        placeholder="Arama İfadesi Giriniz">
-</div>
-<div *ngIf="filterTextFrom" class="alert alert-success">
-    {{filterTextFrom}} Aradınız.
-</div>
+    <div class="row">
+        <div *ngIf="dataLoaded==true && transporterHelpers.length!=0" class="mb-3 col-sm-6">
+            <label for="filterTextFrom" class="form-label">Kalkış Adresine Göre Filtrele : </label>
+            <input type="text" [(ngModel)]="filterTextFrom" class="form-control mb-3" id="filterTextFrom"
+                placeholder="Arama İfadesi Giriniz">
+            <div *ngIf="filterTextFrom" class="alert alert-success">
+                {{filterTextFrom}} Aradınız.
+            </div>
+        </div>
 
-<div *ngIf="dataLoaded==true" class="mb-3">
-    <label for="filterTextTo" class="form-label">Varış Adresine Göre Filtrele : </label>
-    <input type="text" [(ngModel)]="filterTextTo" class="form-control" id="filterTextTo"
-        placeholder="Arama İfadesi Giriniz">
-</div>
-<div *ngIf="filterTextTo" class="alert alert-success">
-    {{filterTextTo}} Aradınız.
-</div>
 
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Adı</th>
-            <th>Soyadı</th>
-            <th>E-posta</th>
-            <th>Telefon No</th>
-            <th>Yardım Detayı</th>
-            <th>Kalkış Noktası</th>
-            <th>Varış Noktası</th>
-            <th *ngIf="userIsAdmin">İşlem</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of transporterHelpers | addressFromFilter:filterTextFrom | addressToFilter:filterTextTo">
-            <td>{{item.id}}</td>
-            <td>{{item.firstName}}</td>
-            <td>{{item.lastName}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.phoneNumber}}</td>
-            <td>{{item.infoAboutHelp}}</td>
-            <td>{{item.addressFrom}}</td>
-            <td>{{item.addressTo}}</td>
-            <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
-        </tr>
-    </tbody>
-</table>
+        <div *ngIf="dataLoaded==true && transporterHelpers.length!=0" class="mb-3 col-sm-6">
+            <label for="filterTextTo" class="form-label">Varış Adresine Göre Filtrele : </label>
+            <input type="text" [(ngModel)]="filterTextTo" class="form-control mb-3" id="filterTextTo"
+                placeholder="Arama İfadesi Giriniz">
+            <div *ngIf="filterTextTo" class="alert alert-success">
+                {{filterTextTo}} Aradınız.
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <table *ngIf="dataLoaded==true && transporterHelpers.length!=0" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>E-posta</th>
+                <th>Telefon No</th>
+                <th>Yardım Detayı</th>
+                <th>Kalkış Noktası</th>
+                <th>Varış Noktası</th>
+                <th *ngIf="userIsAdmin">İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let item of transporterHelpers | addressFromFilter:filterTextFrom | addressToFilter:filterTextTo">
+                <td>{{item.id}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.phoneNumber}}</td>
+                <td>{{item.infoAboutHelp}}</td>
+                <td>{{item.addressFrom}}</td>
+                <td>{{item.addressTo}}</td>
+                <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

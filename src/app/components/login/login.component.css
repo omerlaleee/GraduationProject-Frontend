@@ -7,8 +7,8 @@ body {
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 100vh;
-  background-image: url('https://wallpaperaccess.com/full/2142375.jpg');
+  height: 80vh;
+  /* background-image: url('https://wallpaperaccess.com/full/2142375.jpg'); */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;

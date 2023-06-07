@@ -1,43 +1,46 @@
-<b>Ev Raporlama Sayfası</b>
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
+<div class="paddingRule">
+    <b>Ev Raporlama Sayfası</b>
+    <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 
-<div *ngIf="dataLoaded==true" class="mb-3">
-    <label for="filterText" class="form-label">Adrese Göre Filtrele : </label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
-        placeholder="Arama İfadesi Giriniz">
-</div>
-<div *ngIf="filterText" class="alert alert-success">
-    {{filterText}} Aradınız.
-</div>
+    <div *ngIf="dataLoaded==true && buildReporters.length!=0" class="mb-3">
+        <label for="filterText" class="form-label">Adrese Göre Filtrele : </label>
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+            placeholder="Arama İfadesi Giriniz">
+    </div>
+    <div *ngIf="filterText" class="alert alert-success">
+        {{filterText}} Aradınız.
+    </div>
 
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-        <tr>
-            <th>İsim</th>
-            <th>Soyisim</th>
-            <th>Email</th>
-            <th>Telefon Numarası</th>
-            <th>Adres</th>
-            <th>Detaylı Adres</th>
-            <th>Aciliyet</th>
-            <th>Harita Adresi</th>
-            <th *ngIf="userIsAdmin">İşlem</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of buildReporters | addressFilter:filterText">
-            <td>{{item.firstName}}</td>
-            <td>{{item.lastName}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.phoneNumber}}</td>
-            <td>{{item.address}}</td>
-            <td>{{item.detailedAddress}}</td>
-            <td>{{item.urgency}}</td>
-            <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada Göster</button></td>
-            <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
-        </tr>
-    </tbody>
-</table>
+    <table *ngIf="dataLoaded==true && buildReporters.length!=0" class="table">
+        <thead>
+            <tr>
+                <th>İsim</th>
+                <th>Soyisim</th>
+                <th>Email</th>
+                <th>Telefon Numarası</th>
+                <th>Adres</th>
+                <th>Detaylı Adres</th>
+                <th>Aciliyet</th>
+                <th>Harita Adresi</th>
+                <th *ngIf="userIsAdmin">İşlem</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of buildReporters | addressFilter:filterText">
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.phoneNumber}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.detailedAddress}}</td>
+                <td>{{item.urgency}}</td>
+                <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
+                        Göster</button></td>
+                <td *ngIf="userIsAdmin"><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
