@@ -43,12 +43,12 @@ const routes: Routes = [
   { path: "mapsDetail/:mapsAddress", component: MapsDetailComponent },
   { path: "victimheatmap", component: VictimHeatmapComponent },
   { path: "helperheatmap", component: HelperHeatmapComponent },
-  { path: "publications", component: PublicationComponent, canActivate: [LoginGuard] },//
-  { path: "usermanagement", component: UserManagementComponent, canActivate: [LoginGuard] },//
+  { path: "publications", component: PublicationComponent, canActivate: [LoginGuard] },
+  { path: "usermanagement", component: UserManagementComponent, canActivate: [AdminGuard] },
   
-  { path: "claimassignment/:id", component: ClaimAssignmentComponent },
-  { path: "claim/add", component: ClaimAddComponent },
-  { path: "claims", component: ClaimComponent },
+  { path: "claimassignment/:id", component: ClaimAssignmentComponent, canActivate: [AdminGuard] },
+  { path: "claim/add", component: ClaimAddComponent, canActivate: [AdminGuard] },
+  { path: "claims", component: ClaimComponent, canActivate: [AdminGuard] },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "debrisvictim/add", component: DebrisVictimAddComponent },

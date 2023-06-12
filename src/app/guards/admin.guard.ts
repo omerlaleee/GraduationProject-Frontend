@@ -9,29 +9,35 @@ import { UserService } from '../services/user.service';
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
+
+
   constructor(private authService: AuthService, private userService: UserService, private toastrService: ToastrService, private router: Router) { }
 
-  userIsAdmin: boolean;
+
+  userIsAdmin: boolean = false;
+  flag: boolean = false;
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    this.isAdmin();
-    //console.log(this.userIsAdmin);
-    if (this.userIsAdmin == true) {
-      return true;
-    }
-    else {
-      this.router.navigate(["/"]);
-      this.toastrService.info("Bu Sayfaya Erişim Hakkınız Yok!");
-      return false;
-    }
-  }
-
-  isAdmin() {
     this.userService.isAdmin(this.authService.loggedInUser.id).subscribe(response => {
       this.userIsAdmin = response.success;
+      if (this.userIsAdmin) {
+        console.log(this.userIsAdmin);
+        this.flag = true;
+      }
+      else {
+        this.flag = false;
+      }
     })
+    //console.log(userIsAdmin);
+    if (!this.flag) {
+      this.router.navigate(["/"]);
+      this.toastrService.info("Bu Sayfaya Erişim Hakkınız Yok!");
+    }
+    return this.flag;
+
   }
 
 }

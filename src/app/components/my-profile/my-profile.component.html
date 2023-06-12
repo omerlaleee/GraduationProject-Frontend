@@ -1,7 +1,19 @@
 <div class="paddingRule">
-    <button class="btn btn-fill btn-primary" routerLink="/publications">Taleplerim, Raporlarım ve Yardımlarım</button>
-    <button class="btn btn-fill btn-primary" routerLink="/">Profil Bilgilerim</button>
-    <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/usermanagement">Tüm Kullanıcılar</button>
-    <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/claim/add">Rol Ekle</button>
-    <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/claims">Tüm Roller</button>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <div class="col-md-3">
+            <button class="btn btn-fill btn-primary mb-1" routerLink="/publications">Taleplerim, Raporlarım ve
+                Yardımlarım</button>
+            <br>
+            <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary mb-1" routerLink="/usermanagement">Tüm
+                Kullanıcılar</button><br>
+            <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary mb-1" routerLink="/claim/add">Rol Ekle</button><br>
+            <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary mb-1" routerLink="/claims">Tüm Roller</button><br>
+        </div>
+        <div class="col-md-9 mb-1">
+            <a>İsim : {{this.authService.loggedInUser.firstName}}</a><br>
+            <a>Soyisim : {{this.authService.loggedInUser.lastName}}</a><br>
+            <a>Email : {{this.authService.loggedInUser.email}}</a><br>
+            <a>Telefon Numarası : {{this.authService.loggedInUser.phoneNumber}}</a>
+        </div>
+    </div>
 </div>
