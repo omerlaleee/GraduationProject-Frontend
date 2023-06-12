@@ -47,6 +47,8 @@ import { UserManagementComponent } from './components/user-management/user-manag
 import { FirstnameFilterPipe } from './pipes/firstname-filter.pipe';
 import { LastnameFilterPipe } from './pipes/lastname-filter.pipe';
 import { ClaimAssignmentComponent } from './components/claim-assignment/claim-assignment.component';
+import { ClaimAddComponent } from './components/claim-add/claim-add.component';
+import { ClaimComponent } from './components/claim/claim.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { ClaimAssignmentComponent } from './components/claim-assignment/claim-as
     UserManagementComponent,
     FirstnameFilterPipe,
     LastnameFilterPipe,
-    ClaimAssignmentComponent
+    ClaimAssignmentComponent,
+    ClaimAddComponent,
+    ClaimComponent
   ],
   imports: [
     BrowserModule,

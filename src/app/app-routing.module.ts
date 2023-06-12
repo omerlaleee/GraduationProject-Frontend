@@ -32,6 +32,8 @@ import { PublicationComponent } from './components/publication/publication.compo
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ClaimAssignmentComponent } from './components/claim-assignment/claim-assignment.component';
+import { ClaimAddComponent } from './components/claim-add/claim-add.component';
+import { ClaimComponent } from './components/claim/claim.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
@@ -43,7 +45,10 @@ const routes: Routes = [
   { path: "helperheatmap", component: HelperHeatmapComponent },
   { path: "publications", component: PublicationComponent, canActivate: [LoginGuard] },//
   { path: "usermanagement", component: UserManagementComponent, canActivate: [LoginGuard] },//
+  
   { path: "claimassignment/:id", component: ClaimAssignmentComponent },
+  { path: "claim/add", component: ClaimAddComponent },
+  { path: "claims", component: ClaimComponent },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "debrisvictim/add", component: DebrisVictimAddComponent },

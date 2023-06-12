@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, private authService: AuthService, private router: Router) { }
@@ -41,8 +41,14 @@ export class RegisterComponent implements OnInit{
         this.router.navigate(["/"]);
       }
         , responseError => {
-          //console.log(responseError);
-          this.toastrService.error(responseError.error.message, "Kayıt Başarısız");
+          if (responseError.error.ValidationErrors) {
+            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası");
+            }
+          }
+          else {
+            this.toastrService.error(responseError.error.message, "Kayıt Başarısız");
+          }
         })
     }
     else {

@@ -2,5 +2,6 @@
     <button class="btn btn-fill btn-primary" routerLink="/publications">Taleplerim, Raporlarım ve Yardımlarım</button>
     <button class="btn btn-fill btn-primary" routerLink="/">Profil Bilgilerim</button>
     <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/usermanagement">Tüm Kullanıcılar</button>
-    <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/">Rol Ekle</button>
+    <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/claim/add">Rol Ekle</button>
+    <button *ngIf="userIsAdmin" class="btn btn-fill btn-primary" routerLink="/claims">Tüm Roller</button>
 </div>
