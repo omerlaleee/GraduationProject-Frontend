@@ -17,7 +17,7 @@ export class NaviComponent implements OnInit {
 
   email = window.localStorage.getItem("email");
   ngOnInit(): void {
-    if(this.email!=null){
+    if (this.email != null) {
       this.authService.getLoggedInUser(this.email);
     }
   }
@@ -27,7 +27,7 @@ export class NaviComponent implements OnInit {
     this.toastrService.info("Hesaptan çıkış yapıldı.");
     this.router.navigate(["/"]);
   }
-  
+
   isAuthenticated() {
     return this.authService.isAuthenticated(window.localStorage.getItem("token"));
   }

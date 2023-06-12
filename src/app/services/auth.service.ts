@@ -18,7 +18,7 @@ export class AuthService {
 
   apiUrl = "https://localhost:44314/api/auth/";
   helper = new JwtHelperService();
-  loggedInUser: User = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false };
+  loggedInUser: User = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false, claims: [] };
 
   login(loginModel: LoginModel): Observable<SingleResponseModel<TokenModel>> {
     this.getLoggedInUser(loginModel.email);
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   logout() {
-    this.loggedInUser = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false };
+    this.loggedInUser = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false, claims: [] };
     localStorage.removeItem("token");
     localStorage.removeItem("email");
   }

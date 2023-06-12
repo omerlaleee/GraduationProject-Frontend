@@ -42,6 +42,11 @@ import { AgmCoreModule } from '@agm/core';
 import { MapsDetailComponent } from './components/maps-detail/maps-detail.component';
 import { VictimHeatmapComponent } from './components/victim-heatmap/victim-heatmap.component';
 import { HelperHeatmapComponent } from './components/helper-heatmap/helper-heatmap.component';
+import { PublicationComponent } from './components/publication/publication.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
+import { FirstnameFilterPipe } from './pipes/firstname-filter.pipe';
+import { LastnameFilterPipe } from './pipes/lastname-filter.pipe';
+import { ClaimAssignmentComponent } from './components/claim-assignment/claim-assignment.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +81,12 @@ import { HelperHeatmapComponent } from './components/helper-heatmap/helper-heatm
     AddressToFilterPipe,
     MapsDetailComponent,
     VictimHeatmapComponent,
-    HelperHeatmapComponent
+    HelperHeatmapComponent,
+    PublicationComponent,
+    UserManagementComponent,
+    FirstnameFilterPipe,
+    LastnameFilterPipe,
+    ClaimAssignmentComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,10 @@ import { NaviComponent } from './components/navi/navi.component';
 import { MapsDetailComponent } from './components/maps-detail/maps-detail.component';
 import { VictimHeatmapComponent } from './components/victim-heatmap/victim-heatmap.component';
 import { HelperHeatmapComponent } from './components/helper-heatmap/helper-heatmap.component';
+import { PublicationComponent } from './components/publication/publication.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ClaimAssignmentComponent } from './components/claim-assignment/claim-assignment.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: MainComponent },
@@ -37,6 +41,9 @@ const routes: Routes = [
   { path: "mapsDetail/:mapsAddress", component: MapsDetailComponent },
   { path: "victimheatmap", component: VictimHeatmapComponent },
   { path: "helperheatmap", component: HelperHeatmapComponent },
+  { path: "publications", component: PublicationComponent, canActivate: [LoginGuard] },//
+  { path: "usermanagement", component: UserManagementComponent, canActivate: [LoginGuard] },//
+  { path: "claimassignment/:id", component: ClaimAssignmentComponent },
 
   { path: "buildreporter/add", component: BuildReporterAddComponent, canActivate: [LoginGuard] },
   { path: "debrisvictim/add", component: DebrisVictimAddComponent },

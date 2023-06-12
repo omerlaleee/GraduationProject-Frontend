@@ -1,3 +1,5 @@
+import { OperationClaimModel } from "./operationClaimModel";
+
 export interface User {
     id: number;
     firstName: string;
@@ -7,4 +9,5 @@ export interface User {
     passwordSalt: string;
     passwordHash: string;
     status: boolean;
+    claims: OperationClaimModel[];
 }

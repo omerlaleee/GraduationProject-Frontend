@@ -40,8 +40,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["/"]);
       }
         , responseError => {
-          console.log(responseError);
-          this.toastrService.error("E-posta veya Şifreniz Hatalı!");
+          console.log(responseError.error.message);
+          if (responseError.error.message != null || undefined) {
+            this.toastrService.error(responseError.error.message);
+          }
+          else {
+            this.toastrService.error("E-posta veya Şifreniz Hatalı!");
+          }
         })
     }
     else {

@@ -1,0 +1,64 @@
+<div class="paddingRule">
+    <b>Tüm Kullanıcılar</b>
+    <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <div class="row">
+        <div *ngIf="dataLoaded==true && allUsers.length!=0" class="mb-3 col-sm-6">
+            <label for="filterTextFirstname" class="form-label">İsime Göre Filtrele : </label>
+            <input type="text" [(ngModel)]="filterTextFirstname" class="form-control mb-3" id="filterTextFirstname"
+                placeholder="Arama İfadesi Giriniz">
+            <div *ngIf="filterTextFirstname" class="alert alert-success">
+                {{filterTextFirstname}} Aradınız.
+            </div>
+        </div>
+
+
+        <div *ngIf="dataLoaded==true && allUsers.length!=0" class="mb-3 col-sm-6">
+            <label for="filterTextLastname" class="form-label">Soyisime Göre Filtrele : </label>
+            <input type="text" [(ngModel)]="filterTextLastname" class="form-control mb-3" id="filterTextLastname"
+                placeholder="Arama İfadesi Giriniz">
+            <div *ngIf="filterTextLastname" class="alert alert-success">
+                {{filterTextLastname}} Aradınız.
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="dataLoaded==true && allUsers.length!=0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Email</th>
+                    <th>Telefon Numarası</th>
+                    <th>Durum</th>
+                    <th>Sahip Olunan Roller</th>
+                    <th>İşlem</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let item of allUsers | firstnameFilter:filterTextFirstname | lastnameFilter:filterTextLastname">
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phoneNumber}}</td>
+                    <td *ngIf="item.status==true">Aktif</td>
+                    <td *ngIf="item.status==false">Pasif</td>
+                    <td>
+                        <span *ngFor="let claimItem of item.claims">{{claimItem.name}}<br></span>
+                        <span *ngIf="!item.claims" >Kullanıcının Rolü Yok<br></span>
+                    </td>
+                    <td *ngIf="item.status==true"><button (click)="updateStatus(item)"
+                            [class]="getCurrentButtonClass(item)">Pasifleştir</button></td>
+                    <td *ngIf="item.status==false"><button (click)="updateStatus(item)"
+                            [class]="getCurrentButtonClass(item)">Aktifleştir</button></td>
+                    <td><button routerLink="/claimassignment/{{item.id}}" class="btn btn-primary">Rol Ata</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
