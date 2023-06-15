@@ -1,22 +1,66 @@
-<div class="paddingRule">
-    <b>Tüm Roller</b>
-    <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-        <span class="visually-hidden">Loading...</span>
+<div class="wrapper">
+    <div class="sidebar" data-color="white" data-active-color="danger" style="margin-top: 56px;">
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                    <div class="logo-image-small">
+                        <img src="assets/img/angular2-logo.png">
+                    </div>
+                </a>
+                <a href="/myprofile" class="simple-text logo-normal">
+                    {{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}
+                </a>
+            </div>
+            <ul class="nav">
+                <li routerLinkActive="active">
+                    <a routerLink="/publications">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Talep, Rapor ve Yardımlarım</p>
+                    </a>
+                    <a *ngIf="userIsAdmin" routerLink="/usermanagement">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Tüm Kullanıcılar</p>
+                    </a>
+                    <a *ngIf="userIsAdmin" routerLink="/claim/add">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Rol Ekle</p>
+                    </a>
+                    <a *ngIf="userIsAdmin" routerLink="/claims">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Tüm Roller</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
-
-    <table *ngIf="dataLoaded==true && claims.length!=0" class="table">
-        <thead>
-            <tr>
-                <th>Rol Adı</th>
-                <th>İşlem</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr *ngFor="let item of claims">
-                <td>{{item.name}}</td>
-                <td><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
-            </tr>
-        </tbody>
-    </table>
+    
+    <div class="main-panel">
+        <div class="content">
+            <div class="paddingRule">
+                <b>Tüm Roller</b>
+                <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            
+                <table *ngIf="dataLoaded==true && claims.length!=0" class="table">
+                    <thead>
+                        <tr>
+                            <th>Rol Adı</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                        <tr *ngFor="let item of claims">
+                            <td>{{item.name}}</td>
+                            <td><button (click)="delete(item)" class="btn btn-danger">Sil</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
 </div>

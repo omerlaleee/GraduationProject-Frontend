@@ -1,182 +1,236 @@
-<div class="paddingRule">
-    <!-- <p>{{authService.loggedInUser.firstName}} Hoş Geldin</p> -->
-    <div *ngIf="dataLoaded==true && victims.length!=0">
-        <h2>Yardım Taleplerim</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Yardım Türü</th>
-                    <th>Kişi Sayısı</th>
-                    <th>Aciliyet</th>
-                    <th>Adres</th>
-                    <th>Detaylı Adres</th>
-                    <th>Durum Bilgisi</th>
-                    <th>Harita Adresi</th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of victims">
-                    <td>{{item.victimType}}</td>
-                    <td>{{item.numberOfPeople}}</td>
-                    <td>{{item.urgency}}</td>
-                    <td>{{item.address}}</td>
-                    <td>{{item.detailedAddress}}</td>
-                    <td>{{item.statusInformation}}</td>
-                    <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
-                            Göster</button></td>
-                    <td><button (click)="deleteVictim(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
+<!-- <p>{{authService.loggedInUser.firstName}} Hoş Geldin</p> -->
+
+
+
+
+<div class="wrapper">
+    <div class="sidebar" data-color="white" data-active-color="danger" style="margin-top: 56px;">
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                    <div class="logo-image-small">
+                        <img src="assets/img/angular2-logo.png">
+                    </div>
+                </a>
+                <a href="/myprofile" class="simple-text logo-normal">
+                    {{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}
+                </a>
+            </div>
+            <ul class="nav">
+                <li routerLinkActive="active">
+                    <a routerLink="/publications">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Talep, Rapor ve Yardımlarım</p>
+                    </a>
+                    <a *ngIf="userIsAdmin" routerLink="/usermanagement">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Tüm Kullanıcılar</p>
+                    </a>
+                    <a *ngIf="userIsAdmin" routerLink="/claim/add">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Rol Ekle</p>
+                    </a>
+                    <a *ngIf="userIsAdmin" routerLink="/claims">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>Tüm Roller</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div *ngIf="dataLoaded==true && buildReporters.length!=0">
-        <h2>Ev Raporlarım</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Aciliyet</th>
-                    <th>Adres</th>
-                    <th>Detaylı Adres</th>
-                    <th style="width: 550px;"></th>
-                    <th>Harita Adresi</th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of buildReporters">
-                    <td>{{item.urgency}}</td>
-                    <td>{{item.address}}</td>
-                    <td>{{item.detailedAddress}}</td>
-                    <td style="width: 550px;"></td>
-                    <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
-                            Göster</button></td>
-                    <td><button (click)="deleteBuildReporters(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="main-panel">
+        <div class="content">
+            <div class="paddingRule">
+                <div *ngIf="dataLoaded==true && victims.length!=0">
+                    <h2>Yardım Taleplerim</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Yardım Türü</th>
+                                <th>Kişi Sayısı</th>
+                                <th>Aciliyet</th>
+                                <th>Adres</th>
+                                <th>Detaylı Adres</th>
+                                <th>Durum Bilgisi</th>
+                                <th>Harita Adresi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of victims">
+                                <td>{{item.victimType}}</td>
+                                <td>{{item.numberOfPeople}}</td>
+                                <td>{{item.urgency}}</td>
+                                <td>{{item.address}}</td>
+                                <td>{{item.detailedAddress}}</td>
+                                <td>{{item.statusInformation}}</td>
+                                <td><button class="btn btn-fill btn-primary"
+                                        routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
+                                        Göster</button></td>
+                                <td><button (click)="deleteVictim(item)" class="btn btn-danger">Sil</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div *ngIf="dataLoaded==true && buildReporters.length!=0">
+                    <h2>Ev Raporlarım</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Aciliyet</th>
+                                <th>Adres</th>
+                                <th>Detaylı Adres</th>
+                                <th style="width: 550px;"></th>
+                                <th>Harita Adresi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of buildReporters">
+                                <td>{{item.urgency}}</td>
+                                <td>{{item.address}}</td>
+                                <td>{{item.detailedAddress}}</td>
+                                <td style="width: 550px;"></td>
+                                <td><button class="btn btn-fill btn-primary"
+                                        routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
+                                        Göster</button></td>
+                                <td><button (click)="deleteBuildReporters(item)" class="btn btn-danger">Sil</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 
-    <div *ngIf="dataLoaded==true && houseHelpers.length!=0">
-        <h2>Barınma Yardımlarım</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Yardım Detayı</th>
-                    <th>Yardım Kapasitesi (Kişi Sayısı)</th>
-                    <th style="width: 350px;"></th>
-                    <th>Harita Adresi</th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of houseHelpers">
-                    <td>{{item.infoAboutHelp}}</td>
-                    <td>{{item.numberOfPeople}}</td>
-                    <td style="width: 350px;"></td>
-                    <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
-                            Göster</button></td>
-                    <td><button (click)="deleteHouseHelper(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <div *ngIf="dataLoaded==true && houseHelpers.length!=0">
+                    <h2>Barınma Yardımlarım</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Yardım Detayı</th>
+                                <th>Yardım Kapasitesi (Kişi Sayısı)</th>
+                                <th style="width: 350px;"></th>
+                                <th>Harita Adresi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of houseHelpers">
+                                <td>{{item.infoAboutHelp}}</td>
+                                <td>{{item.numberOfPeople}}</td>
+                                <td style="width: 350px;"></td>
+                                <td><button class="btn btn-fill btn-primary"
+                                        routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
+                                        Göster</button></td>
+                                <td><button (click)="deleteHouseHelper(item)" class="btn btn-danger">Sil</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-    <div *ngIf="dataLoaded==true && foodHelpers.length!=0">
-        <h2>Yemek Yardımlarım</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Yardım Detayı</th>
-                    <th>Yardım Kapasitesi (Kişi Sayısı)</th>
-                    <th style="width: 350px;"></th>
-                    <th>Harita Adresi</th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of foodHelpers">
-                    <td>{{item.infoAboutHelp}}</td>
-                    <td>{{item.numberOfPeople}}</td>
-                    <td style="width: 350px;"></td>
-                    <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
-                            Göster</button></td>
-                    <td><button (click)="deleteFoodHelper(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <div *ngIf="dataLoaded==true && foodHelpers.length!=0">
+                    <h2>Yemek Yardımlarım</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Yardım Detayı</th>
+                                <th>Yardım Kapasitesi (Kişi Sayısı)</th>
+                                <th style="width: 350px;"></th>
+                                <th>Harita Adresi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of foodHelpers">
+                                <td>{{item.infoAboutHelp}}</td>
+                                <td>{{item.numberOfPeople}}</td>
+                                <td style="width: 350px;"></td>
+                                <td><button class="btn btn-fill btn-primary"
+                                        routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
+                                        Göster</button></td>
+                                <td><button (click)="deleteFoodHelper(item)" class="btn btn-danger">Sil</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-    <div *ngIf="dataLoaded==true && tentHelpers.length!=0">
-        <h2>Çadır Yardımlarım</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Yardım Detayı</th>
-                    <th>Yardım Kapasitesi (Kişi Sayısı)</th>
-                    <th style="width: 350px;"></th>
-                    <th>Harita Adresi</th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of tentHelpers">
-                    <td>{{item.infoAboutHelp}}</td>
-                    <td>{{item.numberOfPeople}}</td>
-                    <td style="width: 350px;"></td>
-                    <td><button class="btn btn-fill btn-primary" routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
-                            Göster</button></td>
-                    <td><button (click)="deleteTentHelper(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <div *ngIf="dataLoaded==true && tentHelpers.length!=0">
+                    <h2>Çadır Yardımlarım</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Yardım Detayı</th>
+                                <th>Yardım Kapasitesi (Kişi Sayısı)</th>
+                                <th style="width: 350px;"></th>
+                                <th>Harita Adresi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of tentHelpers">
+                                <td>{{item.infoAboutHelp}}</td>
+                                <td>{{item.numberOfPeople}}</td>
+                                <td style="width: 350px;"></td>
+                                <td><button class="btn btn-fill btn-primary"
+                                        routerLink="/mapsDetail/{{item.mapsAddress}}">Haritada
+                                        Göster</button></td>
+                                <td><button (click)="deleteTentHelper(item)" class="btn btn-danger">Sil</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-    <div *ngIf="dataLoaded==true && operatorHelpers.length!=0">
-        <h2>İş Makinesi Kullanma Yardımlarım</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Yardım Detayı</th>
-                    <th>Operatörün Çalışacabileceği Adres</th>
-                    <th style="width: 575px;"></th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of operatorHelpers">
-                    <td>{{item.infoAboutHelp}}</td>
-                    <td>{{item.address}}</td>
-                    <td style="width: 575px;"></td>
-                    <td><button (click)="deleteOperatorHelper(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <div *ngIf="dataLoaded==true && operatorHelpers.length!=0">
+                    <h2>İş Makinesi Kullanma Yardımlarım</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Yardım Detayı</th>
+                                <th>Operatörün Çalışacabileceği Adres</th>
+                                <th style="width: 575px;"></th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of operatorHelpers">
+                                <td>{{item.infoAboutHelp}}</td>
+                                <td>{{item.address}}</td>
+                                <td style="width: 575px;"></td>
+                                <td><button (click)="deleteOperatorHelper(item)" class="btn btn-danger">Sil</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-    <div *ngIf="dataLoaded==true && transporterHelpers.length!=0">
-        <h2>Seyahat Yardımlarım</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Yardım Detayı</th>
-                    <th>Kalkış Noktası</th>
-                    <th>Varış Noktası</th>
-                    <th style="width: 620px;"></th>
-                    <th>İşlem</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of transporterHelpers">
-                    <td>{{item.infoAboutHelp}}</td>
-                    <td>{{item.addressFrom}}</td>
-                    <td>{{item.addressTo}}</td>
-                    <td style="width: 620px;"></td>
-                    <td><button (click)="deleteTransporterHelper(item)" class="btn btn-danger">Sil</button></td>
-                </tr>
-            </tbody>
-        </table>
+                <div *ngIf="dataLoaded==true && transporterHelpers.length!=0">
+                    <h2>Seyahat Yardımlarım</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Yardım Detayı</th>
+                                <th>Kalkış Noktası</th>
+                                <th>Varış Noktası</th>
+                                <th style="width: 620px;"></th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of transporterHelpers">
+                                <td>{{item.infoAboutHelp}}</td>
+                                <td>{{item.addressFrom}}</td>
+                                <td>{{item.addressTo}}</td>
+                                <td style="width: 620px;"></td>
+                                <td><button (click)="deleteTransporterHelper(item)" class="btn btn-danger">Sil</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

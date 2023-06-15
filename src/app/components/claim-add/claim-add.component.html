@@ -1,39 +1,94 @@
 <body class="bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white vsc-initialized">
-    <div class="mx-auto max-w-screen-lg px-6">
-        <div class="mx-auto max-w-screen-sm">
-            <h1 class="mb-5">Rol Ekleme</h1>
-            <form [formGroup]="claimAddForm">
-                <div class="grid gap-4 sm:grid-cols-2">
 
-                    <div class="sm:col-span-2">
-                        <div class="flex flex-col gap-2">
-                            <div><label class="text-sm font-semibold" for="address">Rol Adı</label></div>
-                            <div class="relative">
-                                <span
-                                    class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="20"
-                                        height="20">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3">
-                                        </path>
-                                    </svg>
-                                </span>
-                                <textarea name="name" id="name" class="pl-10 resize-none" placeholder="Rol"
-                                    tabindex="0" aria-label="Rol" rows="2" style="height: 64px;"
-                                    formControlName="name">
-                                </textarea>
-                            </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="wrapper">
+        <div class="sidebar" data-color="white" data-active-color="danger" style="margin-top: 56px;">
+    
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                        <div class="logo-image-small">
+                            <img src="assets/img/angular2-logo.png">
                         </div>
-                    </div>
-
-
-
-                    <div>
-                        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+                    </a>
+                    <a href="/myprofile" class="simple-text logo-normal">
+                        {{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li routerLinkActive="active">
+                        <a routerLink="/publications">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Talep, Rapor ve Yardımlarım</p>
+                        </a>
+                        <a *ngIf="userIsAdmin" routerLink="/usermanagement">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Tüm Kullanıcılar</p>
+                        </a>
+                        <a *ngIf="userIsAdmin" routerLink="/claim/add">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Rol Ekle</p>
+                        </a>
+                        <a *ngIf="userIsAdmin" routerLink="/claims">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>Tüm Roller</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+        
+        <div class="main-panel">
+            <div class="content">
+                <div class="mx-auto max-w-screen-lg px-6">
+                    <div class="mx-auto max-w-screen-sm">
+                        <h1 class="mb-5">Rol Ekleme</h1>
+                        <form [formGroup]="claimAddForm">
+                            <div class="grid gap-4 sm:grid-cols-2">
+            
+                                <div class="sm:col-span-2">
+                                    <div class="flex flex-col gap-2">
+                                        <div><label class="text-sm font-semibold" for="address">Rol Adı</label></div>
+                                        <div class="relative">
+                                            <span
+                                                class="pointer-events-none absolute top-0 left-0 flex h-11 w-11 items-center justify-center opacity-60 dark:opacity-40">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="20"
+                                                    height="20">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                            <textarea name="name" id="name" class="pl-10 resize-none" placeholder="Rol"
+                                                tabindex="0" aria-label="Rol" rows="2" style="height: 64px;"
+                                                formControlName="name">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>          
+            
+            
+                                <div>
+                                    <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </form>
+                
+            </div>
         </div>
     </div>
+
 </body>

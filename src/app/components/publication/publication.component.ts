@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BuildReporter } from 'src/app/models/buildReporter';
 import { FoodHelper } from 'src/app/models/foodHelper';
 import { HouseHelper } from 'src/app/models/houseHelper';
+import { OperationClaimModel } from 'src/app/models/operationClaimModel';
 import { OperatorHelper } from 'src/app/models/operatorHelper';
 import { TentHelper } from 'src/app/models/tentHelper';
 import { TransporterHelper } from 'src/app/models/transporterHelper';
@@ -14,6 +15,7 @@ import { HouseHelperService } from 'src/app/services/house-helper.service';
 import { OperatorHelperService } from 'src/app/services/operator-helper.service';
 import { TentHelperService } from 'src/app/services/tent-helper.service';
 import { TransporterHelperService } from 'src/app/services/transporter-helper.service';
+import { UserService } from 'src/app/services/user.service';
 import { VictimService } from 'src/app/services/victim.service';
 
 @Component({
@@ -39,11 +41,15 @@ export class PublicationComponent implements OnInit {
     private tentHelperService: TentHelperService,
     private foodHelperService: FoodHelperService,
     private victimService: VictimService,
-    public authService: AuthService, private toastrService: ToastrService) { }
+    public authService: AuthService, private toastrService: ToastrService,public userService:UserService) { }
 
   //this.authService.loggedInUser.email
   //window.localStorage.getItem("email")
   email: string | any = window.localStorage.getItem("email")
+
+  //email: string | any = window.localStorage.getItem("email")
+  userIsAdmin: boolean;
+  claimsOfLoggedInUser: OperationClaimModel[];
 
   ngOnInit(): void {
     if (this.email != null) {
@@ -56,6 +62,21 @@ export class PublicationComponent implements OnInit {
     this.getTentHelpersByEmail();
     this.getTransporterHelpersByEmail();
     this.getOperatorHelpersByEmail();
+
+
+
+    if (this.email != null) {
+      this.authService.getLoggedInUser(this.email);
+      this.claimsOfLoggedInUser = this.authService.loggedInUser.claims;
+    }
+    if (this.authService.loggedInUser != undefined && this.authService.loggedInUser.id != 0) {
+      this.isAdmin(this.authService.loggedInUser.id);
+    }
+  }
+  isAdmin(userId: number) {
+    this.userService.isAdmin(userId).subscribe(response => {
+      this.userIsAdmin = response.success;
+    })
   }
 
   getAllVictimsByEmail() {

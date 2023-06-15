@@ -21,7 +21,11 @@ export class UserManagementComponent implements OnInit {
   userIsAdmin: boolean;
   allClaimsOfUser: OperationClaimModel[];
 
-  constructor(private authService: AuthService, private userService: UserService, private toastrService: ToastrService) { }
+  email: string | any = window.localStorage.getItem("email")
+  //userIsAdmin: boolean;
+  claimsOfLoggedInUser: OperationClaimModel[];
+
+  constructor(public authService: AuthService, private userService: UserService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -30,7 +34,15 @@ export class UserManagementComponent implements OnInit {
       this.isAdmin(this.authService.loggedInUser.id);
     }
 
+    if (this.email != null) {
+      this.authService.getLoggedInUser(this.email);
+      this.claimsOfLoggedInUser = this.authService.loggedInUser.claims;
+    }
+    if (this.authService.loggedInUser != undefined && this.authService.loggedInUser.id != 0) {
+      this.isAdmin(this.authService.loggedInUser.id);
+    }
   }
+  
 
   getUsers() {
     this.userService.getUsers().subscribe(response => {

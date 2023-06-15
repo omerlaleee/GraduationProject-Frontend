@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-
+  
   constructor(public authService: AuthService, public userService: UserService, private toastrService: ToastrService) { }
 
   //this.authService.loggedInUser.email
@@ -19,7 +19,9 @@ export class MyProfileComponent implements OnInit {
   userIsAdmin: boolean;
   claimsOfLoggedInUser: OperationClaimModel[];
 
+  public menuItems: any[];
   ngOnInit(): void {
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
     //this.authService.getLoggedInUser(this.email);
     if (this.email != null) {
       this.authService.getLoggedInUser(this.email);
@@ -36,3 +38,21 @@ export class MyProfileComponent implements OnInit {
     })
   }
 }
+
+export interface RouteInfo {
+  path: string;
+  title: string;
+  icon: string;
+  class: string;
+}
+
+export const ROUTES: RouteInfo[] = [
+  { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
+  { path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
+  { path: '/maps',          title: 'Maps',              icon:'nc-pin-3',      class: '' },
+  { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
+  { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
+  { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '' },
+  { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
+  { path: '/upgrade',       title: 'Upgrade to PRO',    icon:'nc-spaceship',  class: 'active-pro' },
+];

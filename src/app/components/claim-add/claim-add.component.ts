@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { OperationClaimModel } from 'src/app/models/operationClaimModel';
+import { AuthService } from 'src/app/services/auth.service';
 import { OperationClaimService } from 'src/app/services/operation-claim.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-claim-add',
@@ -13,12 +16,30 @@ export class ClaimAddComponent implements OnInit {
 
   claimAddForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, public router: Router,
+  email: string | any = window.localStorage.getItem("email")
+  userIsAdmin: boolean;
+  claimsOfLoggedInUser: OperationClaimModel[];
+
+  constructor(public authService: AuthService, public userService: UserService,private formBuilder: FormBuilder, private toastrService: ToastrService, public router: Router,
     private operationClaimService: OperationClaimService) { }
 
 
   ngOnInit(): void {
     this.createClaimAddForm();
+
+
+    if (this.email != null) {
+      this.authService.getLoggedInUser(this.email);
+      this.claimsOfLoggedInUser = this.authService.loggedInUser.claims;
+    }
+    if (this.authService.loggedInUser != undefined && this.authService.loggedInUser.id != 0) {
+      this.isAdmin(this.authService.loggedInUser.id);
+    }
+  }
+  isAdmin(userId: number) {
+    this.userService.isAdmin(userId).subscribe(response => {
+      this.userIsAdmin = response.success;
+    })
   }
 
   createClaimAddForm() {
