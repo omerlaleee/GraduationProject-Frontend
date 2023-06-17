@@ -28,7 +28,7 @@ export class AuthService {
   getLoggedInUser(email: string | null) {
     this.userService.getUserByEmail(email).subscribe(response => {
       this.loggedInUser = response.data;
-      //console.log(this.loggedInUser);
+      console.log(this.loggedInUser);
     });
   }
 
