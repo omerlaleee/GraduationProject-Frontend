@@ -71,11 +71,11 @@
                             <div class="author">
                                 <a href="#">
                                     <img class="avatar border-gray" src="../assets/images/default-avatar.png" alt="...">
-                                    <h5 class="title">{{this.authService.loggedInUser.firstName}}
+                                    <h5 class="title" style="color: black;">{{this.authService.loggedInUser.firstName}}
                                         {{this.authService.loggedInUser.lastName}}</h5>
                                 </a>
                                 <p class="description">
-                                    @{{this.authService.loggedInUser.firstName}}{{this.authService.loggedInUser.lastName}}
+                                    @{{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}
                                 </p>
                             </div>
                             <!-- <p class="description text-center">
@@ -202,7 +202,7 @@
                                         <div class="form-group">
                                             <label>Kullanıcı Adı</label>
                                             <input type="text" class="form-control" placeholder="Kullanıcı Adı"
-                                                value=@{{this.authService.loggedInUser.firstName}}{{this.authService.loggedInUser.lastName}}>
+                                                value="{{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}">
                                         </div>
                                     </div>
 
