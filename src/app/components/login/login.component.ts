@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms"
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, private authService: AuthService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private toastrService: ToastrService, private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -33,6 +34,13 @@ export class LoginComponent implements OnInit {
         //console.log(response);
         window.localStorage.setItem("token", response.data.token);
         window.localStorage.setItem("email", loginModel.email);
+        this.userService.isAdmin(this.authService.loggedInUser.id).subscribe(response => {
+          window.localStorage.setItem("isAdmin", String(response.success));
+          console.log("Is User Admin → " + response.success);
+        },errorResponse=>{
+          window.localStorage.setItem("isAdmin", String(false));
+          console.log("Is User Admin → false");
+        })
         console.log("Token → " + response.data.token);
         console.log("Expiration Date of Token → " + response.data.expiration);
         this.toastrService.success("Giriş Başarılı");

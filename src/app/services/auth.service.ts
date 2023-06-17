@@ -36,6 +36,7 @@ export class AuthService {
     this.loggedInUser = { id: 0, email: "", firstName: "", lastName: "", passwordHash: "", passwordSalt: "", phoneNumber: "", status: false, claims: [] };
     localStorage.removeItem("token");
     localStorage.removeItem("email");
+    localStorage.removeItem("isAdmin");
   }
 
   register(registerModel: RegisterModel): Observable<SingleResponseModel<TokenModel>> {
