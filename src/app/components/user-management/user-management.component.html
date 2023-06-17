@@ -3,12 +3,12 @@
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                <a class="simple-text logo-mini">
                     <div class="logo-image-small">
                         <img src="assets/img/angular2-logo.png">
                     </div>
                 </a>
-                <a href="/myprofile" class="simple-text logo-normal">
+                <a class="simple-text logo-normal">
                     {{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}
                 </a>
             </div>
@@ -90,7 +90,7 @@
                                 <td *ngIf="item.status==false">Pasif</td>
                                 <td>
                                     <span *ngFor="let claimItem of item.claims">{{claimItem.name}}<br></span>
-                                    <span *ngIf="!item.claims" >Kullanıcının Rolü Yok<br></span>
+                                    <!-- <span *ngIf="!item.claims" >Kullanıcının Rolü Yok<br></span> -->
                                 </td>
                                 <td *ngIf="item.status==true"><button (click)="updateStatus(item)"
                                         [class]="getCurrentButtonClass(item)">Pasifleştir</button></td>

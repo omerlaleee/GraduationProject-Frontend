@@ -18,8 +18,9 @@ export class MyProfileComponent implements OnInit {
   email: string | any = window.localStorage.getItem("email")
   userIsAdmin: boolean;
   claimsOfLoggedInUser: OperationClaimModel[];
-
+  
   public menuItems: any[];
+  
   ngOnInit(): void {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     //this.authService.getLoggedInUser(this.email);

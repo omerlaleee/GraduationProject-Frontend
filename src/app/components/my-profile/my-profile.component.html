@@ -26,12 +26,12 @@
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a routerLink="/myprofile" class="simple-text logo-mini">
+                <a class="simple-text logo-mini">
                     <div class="logo-image-small">
                         <img src="assets/img/angular2-logo.png">
                     </div>
                 </a>
-                <a routerLink="/myprofile" class="simple-text logo-normal">
+                <a class="simple-text logo-normal">
                     {{this.authService.loggedInUser.firstName}} {{this.authService.loggedInUser.lastName}}
                 </a>
             </div>
@@ -58,7 +58,7 @@
         </div>
 
     </div>
-    
+
     <div class="main-panel">
         <div class="content">
             <div class="row">
@@ -70,20 +70,21 @@
                         <div class="card-body">
                             <div class="author">
                                 <a href="#">
-                                    <img class="avatar border-gray" src="../assets/images/mike.jpg" alt="...">
-                                    <h5 class="title">Chet Faker</h5>
+                                    <img class="avatar border-gray" src="../assets/images/default-avatar.png" alt="...">
+                                    <h5 class="title">{{this.authService.loggedInUser.firstName}}
+                                        {{this.authService.loggedInUser.lastName}}</h5>
                                 </a>
                                 <p class="description">
-                                    @chetfaker
+                                    @{{this.authService.loggedInUser.firstName}}{{this.authService.loggedInUser.lastName}}
                                 </p>
                             </div>
-                            <p class="description text-center">
+                            <!-- <p class="description text-center">
                                 "I like the way you work it
                                 <br> No diggity
                                 <br> I wanna bag it up"
-                            </p>
+                            </p> -->
                         </div>
-                        <div class="card-footer">
+                        <!-- <div class="card-footer">
                             <hr>
                             <div class="button-container">
                                 <div class="row">
@@ -107,9 +108,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Team Members</h4>
                         </div>
@@ -180,53 +181,58 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-md-8">
                     <div class="card card-user">
                         <div class="card-header">
-                            <h5 class="card-title">Edit Profile</h5>
+                            <h5 class="card-title" style="color: black;">Kullanıcı Bilgileri</h5>
                         </div>
                         <div class="card-body">
                             <form>
                                 <div class="row">
-                                    <div class="col-md-5 pr-1">
-                                        <div class="form-group">
+                                    <!-- <div class="col-md-5 pr-1">
+                                         <div class="form-group">
                                             <label>Company (disabled)</label>
                                             <input type="text" class="form-control" disabled="" placeholder="Company"
                                                 value="Creative Code Inc.">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-3 px-1">
                                         <div class="form-group">
-                                            <label>Username</label>
-                                            <input type="text" class="form-control" placeholder="Username"
-                                                value="michael23">
+                                            <label>Kullanıcı Adı</label>
+                                            <input type="text" class="form-control" placeholder="Kullanıcı Adı"
+                                                value=@{{this.authService.loggedInUser.firstName}}{{this.authService.loggedInUser.lastName}}>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 pl-1">
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 pl-1">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" placeholder="Email">
+                                            <label for="exampleInputEmail1">Email Adresi</label>
+                                            <input type="email" class="form-control"
+                                                value={{this.authService.loggedInUser.email}} placeholder="Email">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
-                                            <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="Company" value="Chet">
+                                            <label>İsim</label>
+                                            <input type="text" class="form-control" placeholder="İsim"
+                                                value="{{this.authService.loggedInUser.firstName}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6 pl-1">
                                         <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name"
-                                                value="Faker">
+                                            <label>Soyisim</label>
+                                            <input type="text" class="form-control" placeholder="Soyisim"
+                                                value="{{this.authService.loggedInUser.lastName}}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Address</label>
@@ -234,8 +240,8 @@
                                                 value="Melbourne, Australia">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
+                                </div> -->
+                                <!-- <div class="row">
                                     <div class="col-md-4 pr-1">
                                         <div class="form-group">
                                             <label>City</label>
@@ -256,21 +262,21 @@
                                             <input type="number" class="form-control" placeholder="ZIP Code">
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>About Me</label>
+                                            <label>Hakkımda</label>
                                             <textarea
-                                                class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                                                class="form-control textarea">Eskişehir Osmangazi Üniversitesi'nde Bilgisayar Mühendisliği Bölümü 4. sınıf öğrencisiyim.</textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="update ml-auto mr-auto">
                                         <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
