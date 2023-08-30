@@ -1,3 +1,5 @@
+<p align="center">
+
 # GraduationProject-Frontend
 
 ![Ana sayfa 1](README_IMAGES/01.png)
@@ -53,3 +55,5 @@ Kullanıcı Yönetimi Sayfası
 
 ![Birim Testi Örneği](README_IMAGES/18.png)
 Birim Testi Örneği
+
+</p>
